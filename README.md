@@ -2,7 +2,7 @@
 ## Typescript
 1. Intro
     1. ES6 recap
-        1. Const, let
+        1. const, let
         1. spread , destructuring
         1. Interators
         1. Symbols
