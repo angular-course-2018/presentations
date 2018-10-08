@@ -67,9 +67,31 @@
 				<img style="margin: 0;" class="reset-img" width="70px" src="../../assets/angular-logo.png" />
                 <h3>Angular</h3>
                 <i style="font-size: 24px">Sep 14, 2016</i>
-            </section>
+			</section>
+			<section>
+				<h3>📦 Modules</h3>
+				<i>Containers for a cohesive block of code dedicated to an application domain, a workflow, or a closely related set of capabilities.</i>
+			</section>
+			<section>
+				<img class="reset-img" src="../../assets/modules.png" />
+			</section>
             <section>
-                <h3>NgModule</h3>
+				<h3>NgModule</h3>
+<pre><i>app.module.ts</i><code class="language-typescript" data-trim>
+import { NgModule } from '@angular/core';
+
+@NgModule({
+	declarations: [AppComponent],
+	imports: [],
+  	providers: [],
+  	bootstrap: [AppComponent],
+})
+export class AppModule { }
+
+
+// app bootstrap
+platformBrowserDynamic().bootstrapModule(AppModule);
+</code></pre>
             </section>
             <section>
                 <h3><img class="reset-img" style="margin: 0" width="100px" src="../../assets/lego.png">UI Components</h3>
@@ -85,8 +107,45 @@
                 </div>
             </section>
             <section>
-                code example goes here
-            </section>
+<h5>Creating a Component</h5>
+<pre>
+<i>fancy-button.component.html</i>
+<code class="language-html" data-trim>
+&lt;button class="fancy-button">Fancy Button&lt;/button>
+</code>
+<i>fancy-button.component.scss</i>
+<code class="language-scss" data-trim>
+.fancy-button {
+	background-color: #f44336;
+}
+</code>
+<i>fancy-button.component.ts</i>
+<code class="language-typescript" data-trim>
+import { Component } from '@angular/core';
+
+@Component({
+	selector: 'app-fancy-button',
+	templateUrl: './fancy-button.component.html',
+	styleUrls: ['./fancy-button.component.scss']
+})
+export class FancyButtonComponent {}	
+</code>
+</pre>
+			</section>
+			<section>
+				<h5>Declaring the Component</h5>
+<pre><i>app.module.ts</i><code class="language-typescript" data-trim>
+import { NgModule } from '@angular/core';		
+import { FancyButtonComponent } from './fancy-button.component';
+
+@NgModule({
+	declarations: [
+		FancyButtonComponent,
+	]
+})
+export class AppModule { }
+</code></pre>
+			</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
