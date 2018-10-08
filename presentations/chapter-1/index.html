@@ -60,7 +60,7 @@
                 <ul style="margin-top: 40px; color: #f44336;">
                     <li>Not really modular</li>
                     <li>No Encapsulation</li>
-                    <li>Bad performance</li>
+                    <li>Performance</li>
                 </ul>
             </section>
 			<section>
@@ -111,7 +111,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 <pre>
 <i>fancy-button.component.html</i>
 <code class="language-html" data-trim>
-&lt;button class="fancy-button">Fancy Button&lt;/button>
+&lt;button class="fancy-button">Fancy&lt;/button>
 </code>
 <i>fancy-button.component.scss</i>
 <code class="language-scss" data-trim>
@@ -146,6 +146,24 @@ import { FancyButtonComponent } from './fancy-button.component';
 export class AppModule { }
 </code></pre>
 			</section>
+			<section>
+					<h5>Using the Component</h5>
+	<pre><i>some.component.html</i><code class="language-html" data-trim>
+		&lt;ul>
+		  &lt;li>Button 1: &lt;app-fancy-button>&lt;/app-fancy-button>&lt;/li>
+		  &lt;li>Button 2: &lt;app-fancy-button>&lt;/app-fancy-button>&lt;/li>
+		  &lt;li>Button 3: &lt;app-fancy-button>&lt;/app-fancy-button>&lt;/li>
+		&lt;/ul>
+	</code>
+<i>renderd html: </i><code class="language-html" data-trim>
+&lt;ul>
+  &lt;li>Button 1: &lt;button class="fancy-button">Fancy&lt;/button>&lt;/li>
+  &lt;li>Button 2: &lt;button class="fancy-button">Fancy&lt;/button>&lt;/li>
+  &lt;li>Button 3: &lt;button class="fancy-button">Fancy&lt;/button>&lt;/li>
+&lt;/ul>
+		</code>
+</pre>
+				</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
