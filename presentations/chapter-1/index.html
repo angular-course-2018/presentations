@@ -192,13 +192,45 @@ export class AppModule { }
 			</section>
 			<section>
 				<h3>@Input</h3>
-				<pre><code class="language-typescript" data-trim>
-				</code></pre>
+				<h5>Passing data from parent to child</h5>
+				<pre>
+<i>fancy-button.component.ts</i>
+<code class="language-typescript" data-trim>
+	@Component({/.../})
+	export class FancyButtonComponent {
+	  @Input() buttonText: string;
+	}
+</code>
+<i>fancy-button.component.html</i>
+<code class="language-html" data-trim>
+&lt;button class="fancy-button">{{buttonText}}&lt;/button>
+</code>
+<i>parent.component.html</i>
+<code class="language-html" data-trim>
+&lt;app-fancy-button [buttonText]="'Fancy'"/>
+</code>
+</pre>
 			</section>
 			<section>
-				<h3>@Output</h3>
-				<pre><code class="language-typescript" data-trim>
-				</code></pre>
+<h3>@Output</h3>
+<h5>Passing data from child to parent</h5>
+<pre>
+<i>fancy-button.component.ts</i>
+	<code class="language-typescript" data-trim>
+		@Component({/.../})
+		export class FancyButtonComponent {
+		  @Output() pick: EventEmitter&lt;string> = new EventEmitter();
+		}
+	</code>
+<i>fancy-button.component.html</i>
+	<code class="language-html" data-trim>
+	&lt;button (click)="pick.emit('button clicked!')">{{buttonText}}&lt;/button>
+	</code>
+<i>parent.component.html</i>
+	<code class="language-html" data-trim>
+	&lt;app-fancy-button (pick)="alert($event)"/>
+	</code>
+	</pre>
 			</section>
 			<section>
 				<img class="reset-img" src="../../assets/parent-child.png">
