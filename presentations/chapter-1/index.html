@@ -33,6 +33,11 @@
 		  background: none !important;
 		  box-shadow: none !important;
 		}
+
+		@keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
 	</style>
 </head>
 
@@ -42,10 +47,13 @@
             <section>
                 <i>intro placeholder...</i>
             </section>
-            <section>
-                    <img style="margin: 0;" class="reset-img" width="70px" src="../../assets/angularjs-logo.png" />
-                    <h3>AngularJS</h3>
-                    <i style="font-size: 24px">Oct 20, 2010</i>
+            <section data-state="play-wiz">
+                    <img id="angularjs-logo" style="margin: 0; opacity: 0;" class="reset-img" width="70px" src="../../assets/angularjs-logo.png" />
+                    <h3 id="angularjs-title" style="opacity: 0;">AngularJS</h3>
+					<i id="angularjs-period" style="font-size: 24px; opacity: 0;">Oct 20, 2010 - Jun 30, 2018</i>
+					<audio id="wiz">
+						<source src="../../assets/wiz.mp3" type="audio/mp3">
+					</audio>
                 </section>
             <section>
                 <i>The good parts:</i><br>
@@ -65,7 +73,7 @@
             </section>
 			<section>
 				<img style="margin: 0;" class="reset-img" width="70px" src="../../assets/angular-logo.png" />
-                <h3>Angular</h3>
+                <h3>Angular 🎉</h3>
                 <i style="font-size: 24px">Sep 14, 2016</i>
 			</section>
 			<section>
@@ -190,6 +198,23 @@ export class AppModule { }
 				{ src: '../../revealjs/plugin/notes/notes.js', async: true },
 				{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
 			]
+		});
+	</script>
+	<script>
+		Reveal.addEventListener('play-wiz', () => {
+			const wiz = document.getElementById("wiz");
+			wiz&&wiz.play();
+			
+			const angularLogo = document.getElementById('angularjs-logo');
+			angularLogo.style.animation = 'fadein 2s forwards';
+
+			const angularTitle = document.getElementById('angularjs-title');
+			angularTitle.style.animation = 'fadein 2s forwards';
+			angularTitle.style.animationDelay = '3s';
+
+			const angularPeriod = document.getElementById('angularjs-period');
+			angularPeriod.style.animation = 'fadein 2s forwards';
+			angularPeriod.style.animationDelay = '5.5s';
 		});
 	</script>
 </body>
