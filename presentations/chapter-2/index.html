@@ -57,7 +57,7 @@
 				<i>Change the appearance or behavior of an element, component, or another directive.</i>
 			</section>
             <section>
-				<h3>Built in directives</h3>
+				<h3>Built-in directives</h3>
 <pre><h3>NgStyle</h3><code class="language-html" data-trim>
 &lt;div [ngStyle]="{'font-size': isLarge ? '50px' : '12px'}">
   Conditional font size
@@ -75,11 +75,9 @@
 			<section>
 				<h3><img class="reset-img" style="margin: 0" width="100px" src="../../assets/structural.png"> Structural Directives</h3>
 				<i>Shape or reshape the DOM's structure, typically by adding, removing, or manipulating elements.</i>
-				<br><br>
-				<i style="font-size: 30px">Structural directive name is preceded by an asterisk (*).</i>
 			</section>
 			<section>
-				<h3>Built in directives</h3>
+				<h3>Built-in directives</h3>
 <pre><h3>*NgIf</h3><code class="language-html" data-trim>
 
 </code>
@@ -87,6 +85,59 @@
 
 </code></pre>
 			</section>
+			<section>
+				<h3>* -> ng-template explanation</h3>
+			</section>
+			<section>
+				<h3><img class="reset-img" style="margin: 0" width="80px" src="../../assets/pipe.png"> Pipes</h3>
+				<i>A declarative way to write display-value transformations in your HTML.</i>
+			</section>
+			<section>
+					<h3>Built-in pipes</h3>
+<pre><h3>date</h3><code class="language-html" data-trim>
+  <p>The hero's birthday is {{ birthday | date:"MM/dd/yy" }} </p>
+</code>
+<h3>currency</h3><code class="language-html" data-trim>
+  <p>A: {{a | currency:'CAD'}}</p>
+</code>
+<h3>json</h3><code class="language-html" data-trim>
+  <pre>{{object | json}}</pre>
+</code>	
+</pre>
+				</section>
+				<section>
+					<h3>Pure vs. Impure</h3>
+					<i>A Pure function is a function that its return value is the same for the same arguments and it has no side effects.</i>
+				</section>
+				<section>
+
+<pre><h3>Pure</h3><code class="language-javascript" data-trim>
+const sum = (a,b) => a + b;
+
+sum(1, 1); // 2
+sum(1, 1); // 2
+sum(1, 1); // 2
+</code>
+<h3>Impure</h3><code class="language-javascript" data-trim>
+const sum = (() => { 
+  let a = 0; 
+  return (b) => a += b;}
+)();
+
+sum(1); // 1
+sum(1); // 2
+sum(1); // 3
+</code></pre>
+				</section>
+				<section>
+					<h3>Change detection and pipe type</h3>
+				</section>
+				<section>
+					<h3>Async pipe</h3>
+				</section>
+				<section>
+						<h3>Writing custom pipe</h3>
+				</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
