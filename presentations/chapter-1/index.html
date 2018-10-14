@@ -236,6 +236,26 @@ export class FancyButtonComponent {
 				<img class="reset-img" src="../../assets/parent-child.png">
 			</section>
 			<section>
+				<h3>Content Projection</h3>
+<pre>
+<i>fancy-button.component.html</i>
+<code class="language-html" data-trim>
+&lt;button class="fancy-button">
+  &lt;ng-content>&lt;/ng-content>
+&lt;/button>
+</code>
+<i>parent.component.html</i><code class="language-html" data-trim>
+&lt;app-fancy-button>
+  &lt;i class="my-icon">&lt;/i>&lt;span>Fancy Button!&lt;/span>
+&lt;/app-fancy-button>
+
+&lt;app-fancy-button>
+  not so fancy...
+&lt;/app-fancy-button>
+	</code>
+</pre>
+			</section>
+			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
