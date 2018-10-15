@@ -93,6 +93,23 @@
 				</div>
 			</section>
 			<section>
+				<h3>@ Decorator</h3>
+				<i>A declarative way to enhance/override classes, members, methods, properties or parameters.</i>
+<pre><code class="language-typescript" data-trim>
+@Fly()
+@Outfit({
+  color: 'green'
+})
+Class Dog {
+  @Name() name: string;
+
+  bark(){
+    console.log(this.name);
+  }
+}
+</code></pre>
+			</section>
+			<section>
 				<img class="reset-img" width="500px" src="../../assets/es-ts.png">
 			</section>
 			<section>
