@@ -215,6 +215,16 @@ export class TimerPipe implements PipeTransform {
 					</section>
 				<section>
 					<h3>The Async pipe</h3>
+					<i>Subscribes to an Observable or Promise and returns the latest value it has emitted.</i>
+<pre><code class="language-html" data-trim>
+const httpRes = fetch('/cats'); // this returns a promise
+
+&lt;p>{{ httpRes | async }}&lt;/p> //Render once the promise resolves
+
+</code>
+<br>
+<i>*We will learn more about observables in the next lesson</i>
+</pre>
 				</section>
 				
 			<section>
