@@ -176,10 +176,29 @@ sum(1); // 3
 					<br><i style="font-size: 34px">Can you spot the difference?</i>
 				</section>
 				<section>
-					<h3>Pure pipe</h3>
-					vs
-					<h3>Impure pipe</h3>
-				</section>
+						<h3>Pipe purity</h3>
+	<pre><code class="language-typescript" data-trim>
+@Pipe({
+  name: 'timer',
+  pure: true, // default: true
+})
+export class TimerPipe implements PipeTransform {
+  transform(time: { minutes: number; seconds: number }) {
+    return `${time.minutes} : ${time.seconds}`;
+  }
+}</code>
+<i>let currentTime = { minutes: 22, seconds: 13 };</i>
+<code class="language-html" data-trim>
+&lt;span>{{currentTime | timer}}&lt;/span> // RESULT: "22:13"
+</code>
+<i>currentTime.minutes = 23;                      //input mutation</i>
+<code class="language-html" data-trim>
+&lt;span>{{currentTime | timer}}&lt;/span></code><span style="color: red">RESULT: "22:13"</span> 
+<i>currentTime = { minutes: 23, seconds: 13 };    //new instance</i>
+<code class="language-html" data-trim>
+&lt;span>{{currentTime | timer}}&lt;/span></code><span style="color: #58eb58">RESULT: "23:13"</span> 
+	</pre>
+					</section>
 				<section>
 					<h3>The Async pipe</h3>
 				</section>
