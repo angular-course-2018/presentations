@@ -33,6 +33,20 @@
 		  background: none !important;
 		  box-shadow: none !important;
 		}
+		#pipe {
+			transform: translateZ(3px);
+		}
+		#mario{
+			margin: 0;
+			transform: translate(60px, -30px);
+			animation-timing-function: ease-in-out;
+			animation-delay: 1s;
+		}
+		@keyframes failed-jump {
+			from { transform: translate(60px, -30px); }
+			50% { transform: translate(60px, -140px); }
+			to   { transform: translate(60px, -30px); }
+		}
 	</style>
 </head>
 
@@ -70,7 +84,7 @@
 </code></pre>
 			</section>
 			<section>
-				<h3>Custom Arrtibute Directive</h3>
+				<h3>Custom Attribute Directive</h3>
 			</section>
 			<section>
 				<h3><img class="reset-img" style="margin: 0" width="100px" src="../../assets/structural.png"> Structural Directives</h3>
@@ -100,8 +114,8 @@
 </pre>
 <i>&lt;ng-template> - An Angular element that never displayed directly. Before rendering the view, Angular replaces its block with a comment.</i>
 			</section>
-			<section>
-				<h3><img class="reset-img" style="margin: 0" width="80px" src="../../assets/pipe.png"> Pipes</h3>
+			<section data-state="play-mario">
+				<h3><img id="mario" class="reset-img" width="40px" src="../../assets/mario.png" /><img id="pipe" class="reset-img" style="margin: 0" width="80px" src="../../assets/pipe.png">Pipes</h3>
 				<i>A declarative way to write display-value transformations in your HTML.</i>
 			</section>
 			<section>
@@ -225,6 +239,12 @@ export class TimerPipe implements PipeTransform {
 				{ src: '../../revealjs/plugin/notes/notes.js', async: true },
 				{ src: '../../revealjs/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
 			]
+		});
+	</script>
+	<script>
+		Reveal.addEventListener('play-mario', () => {
+			const mario = document.getElementById('mario');
+			mario.style.animation = 'failed-jump 2s forwards';
 		});
 	</script>
 </body>
