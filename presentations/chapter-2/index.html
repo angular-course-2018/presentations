@@ -43,7 +43,7 @@
                 <i>intro placeholder...</i>
 			</section>
 			<section>
-				<h3>✨ Directives Types</h3>
+				<h3>✨ Directive Types</h3>
 			</section>
 			<section>
 				<div style="width: 750px; margin: auto; display: flex; flex-direction: column; align-items: flex-start; padding: 0 100px">
@@ -58,12 +58,12 @@
 			</section>
             <section>
 				<h3>Built-in directives</h3>
-<pre><h3>NgStyle</h3><code class="language-html" data-trim>
+<pre><h3>ngStyle</h3><code class="language-html" data-trim>
 &lt;div [ngStyle]="{'font-size': isLarge ? '50px' : '12px'}">
   Conditional font size
 &lt;/div>
 </code>
-<h3>NgClass</h3><code class="language-html" data-trim>
+<h3>ngClass</h3><code class="language-html" data-trim>
 &lt;div [ngClass]="{'first': true, 'second': true, 'third': false}">
  Conditional classes
 &lt;/div>
@@ -78,15 +78,27 @@
 			</section>
 			<section>
 				<h3>Built-in directives</h3>
-<pre><h3>*NgIf</h3><code class="language-html" data-trim>
-
+<pre><h3>*ngIf</h3><code class="language-html" data-trim>
+&lt;div *ngIf="condition">⚡️⚡️⚡️&lt;/div>
 </code>
-<h3>*NgFor</h3><code class="language-html" data-trim>
-
+<h3>*ngFor</h3><code class="language-html" data-trim>
+&lt;ul>
+  &lt;li *ngFor="let index of [0,1,2,3,4]">{{index}}&lt;/li>
+&lt;/ul>
 </code></pre>
 			</section>
 			<section>
-				<h3>* -> ng-template explanation</h3>
+				<h5>The * prefix is just a syntactic sugar</h5>
+<pre><code class="language-html" data-trim>
+&lt;div *ngIf="condition">⚡️⚡️⚡️&lt;/div>
+</code>
+<i>same as:</i><code class="language-html" data-trim>
+&lt;ng-template [ngIf]="condition">
+  &lt;div>⚡️⚡️⚡️&lt;/div>
+&lt;/ng-template>
+</code>
+</pre>
+<i>&lt;ng-template> - An Angular element that never displayed directly. Before rendering the view, Angular replaces its block with a comment.</i>
 			</section>
 			<section>
 				<h3><img class="reset-img" style="margin: 0" width="80px" src="../../assets/pipe.png"> Pipes</h3>
@@ -95,18 +107,18 @@
 			<section>
 					<h3>Built-in pipes</h3>
 <pre><h3>date</h3><code class="language-html" data-trim>
-  <p>The hero's birthday is {{ birthday | date:"MM/dd/yy" }} </p>
+&lt;p>{{ new Date() | date:'MM/dd/yy' }}&lt;/p>   //"10/03/18"
 </code>
 <h3>currency</h3><code class="language-html" data-trim>
-  <p>A: {{a | currency:'CAD'}}</p>
+&lt;p>{{ 32.99 | currency:'CAD'}}&lt;/p>          //"CA$32.99"
 </code>
 <h3>json</h3><code class="language-html" data-trim>
-  <pre>{{object | json}}</pre>
+&lt;p>{{ {a: 1, b: '2'} | json}}&lt;/p>           //"{"a":1,"b":"2"}"
 </code>	
 </pre>
 				</section>
 				<section>
-					<h3>Pure vs. Impure</h3>
+					<h3>🧘 Pure vs. 👹 Impure</h3>
 					<i>A Pure function is a function that its return value is the same for the same arguments and it has no side effects.</i>
 				</section>
 				<section>
@@ -129,6 +141,32 @@ sum(1); // 2
 sum(1); // 3
 </code></pre>
 				</section>
+				<section>
+						<h3>🎢 Mutable vs. 🏄‍ Immutable</h3>
+						<i></i>
+					</section>
+					<section>
+	
+	<pre><h3>Mutable</h3><code class="language-javascript" data-trim>
+		const mutablePush = (arr, item) => { 
+			arr.push(item);
+			return arr;
+		};
+		const arr = [1,2,3];
+		const arr2 = mutablePush(arr, 4);
+
+		console.log(arr === arr2); // true
+	</code>
+	<h3>Immutable</h3><code class="language-javascript" data-trim>
+			const immutablePush = (arr, item) => {
+				return [...arr, item];
+			};
+			const arr = [1,2,3];
+			const arr2 = immutablePush(arr, 4);
+	
+			console.log(arr === arr2); // false
+	</code></pre>
+					</section>
 				<section>
 					<h3>Change detection and pipe type</h3>
 				</section>
