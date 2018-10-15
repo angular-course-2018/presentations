@@ -191,8 +191,8 @@ export class AppModule { }
 				<h3>Communicate Between Components</h3>
 			</section>
 			<section>
-				<h3>@Input</h3>
-				<h5>Parent > child</h5>
+<h3>@Input</h3>
+<h5>Parent ➡ Child</h5>
 				<pre>
 <i>fancy-button.component.ts</i>
 <code class="language-typescript" data-trim>
@@ -210,10 +210,11 @@ export class AppModule { }
 &lt;app-fancy-button [buttonText]="'Fancy'"/>
 </code>
 </pre>
+<br><i>Data binding is done using square brackets [].</i>
 			</section>
 			<section>
 <h3>@Output</h3>
-<h5>Child > Parent</h5>
+<h5>Parent ⬅ Child</h5>
 <pre>
 <i>fancy-button.component.ts</i>
 <code class="language-typescript" data-trim>
@@ -231,6 +232,8 @@ export class FancyButtonComponent {
 &lt;app-fancy-button (pick)="window.alert($event)"/>
 </code>
 	</pre>
+	<br><i>Event binding is done using round brackets ().</i>
+
 			</section>
 			<section>
 				<img class="reset-img" src="../../assets/parent-child.png">
