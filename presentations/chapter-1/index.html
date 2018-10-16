@@ -259,6 +259,59 @@ export class FancyButtonComponent {
 </pre>
 			</section>
 			<section>
+				<h3>Testing a Component</h3>
+				<img class="reset-img" src="../../assets/component-test.png" />
+			</section>
+			<section>
+				<h5>1. Prepare test module</h5>
+				<pre><code class="language-typescript" data-trim>
+import { TestBed, async } from '@angular/core/testing';
+import { AppComponent } from './app.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
+describe('AppComponent', () => {
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ]
+    }).compileComponents();
+  }));
+
+});
+					</code></pre>
+			</section>
+			<section>
+					<h5>2. Create component instance and use it</h5>
+					<pre><code class="language-typescript" data-trim>
+import { TestBed, async } from '@angular/core/testing';
+import { AppComponent } from './app.component';
+	
+describe('AppComponent', () => {
+  beforeEach(async(() => { /.../ }));
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+	
+    expect(app).toBeTruthy();
+  });
+
+});
+						</code></pre>
+				</section>
+				<section>
+					DOM Interactions
+				</section>
+				<section>
+					Component Input
+				</section>
+				<section>
+					Component Output
+				</section>
+			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
