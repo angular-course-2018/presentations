@@ -8,7 +8,11 @@
       "sourceRoot": "projects/chapter1/src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,7 +27,7 @@
               "projects/chapter1/src/assets"
             ],
             "styles": [
-              "projects/chapter1/src/styles.css"
+              "projects/chapter1/src/styles.scss"
             ],
             "scripts": []
           },
@@ -87,7 +91,11 @@
       "sourceRoot": "projects/chapter2/src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -102,7 +110,7 @@
               "projects/chapter2/src/assets"
             ],
             "styles": [
-              "projects/chapter2/src/styles.css"
+              "projects/chapter2/src/styles.scss"
             ],
             "scripts": []
           },
@@ -151,7 +159,7 @@
             "tsConfig": "projects/chapter2/tsconfig.spec.json",
             "karmaConfig": "projects/chapter2/karma.conf.js",
             "styles": [
-              "projects/chapter2/src/styles.css"
+              "projects/chapter2/src/styles.scss"
             ],
             "scripts": [],
             "assets": [
