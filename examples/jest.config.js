@@ -1,7 +1,7 @@
 module.exports = {
   testURL: 'http://localhost',
   preset: 'jest-preset-angular',
-  setupTestFrameworkScriptFile: '<rootDir>/src/setup-jest.ts',
+  setupTestFrameworkScriptFile: '<rootDir>/setup-jest.ts',
   roots: ['src/app', 'projects'],
   collectCoverageFrom: [
     '**/*.ts',

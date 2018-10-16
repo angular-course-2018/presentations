@@ -7,14 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "chapter0": "ng serve chapter0",
-    "chapter1": "ng serve chapter1",
-    "chapter2": "ng serve chapter2",
-    "chapter3": "ng serve chapter3",
-    "chapter4": "ng serve chapter4",
-    "chapter5": "ng serve chapter5",
-    "chapter6": "ng serve chapter6"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
