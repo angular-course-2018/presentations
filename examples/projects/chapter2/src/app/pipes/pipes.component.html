@@ -1,0 +1,17 @@
+<h3>Date</h3>
+<div class="result">{{ now | date:'MMMM d, y h:mm:ss'}}</div>
+<hr>
+<h3>Currency</h3>
+<div class="result">
+    <div>USD: {{ '32.99' | currency:'USD'}}</div>
+    <div>ILS: {{ '32.99' | currency:'ILS'}}</div>
+    <div>CAD: {{ '32.99' | currency:'CAD'}}</div>
+</div>
+<hr>
+<h3>JSON</h3>
+<div class="result">
+    {{ myObj | json }}
+</div>
+<hr>
+<h3>custom goes here</h3>
+<hr>

@@ -7,6 +7,7 @@ import { appRoutes } from './app.routes';
 import { AttributeDirectiveModule } from './attribute-directives/attribute-directives.module';
 import { CommonModule } from '@angular/common';
 import { StructuralDirectiveModule } from './structural-directives/structural-directives.module';
+import { PipesModule } from './pipes/pipes.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { StructuralDirectiveModule } from './structural-directives/structural-di
     ChangeDetectionModule,
     AttributeDirectiveModule,
     StructuralDirectiveModule,
+    PipesModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
