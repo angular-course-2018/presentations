@@ -1,0 +1,18 @@
+<div>
+  <h3>ngStyle</h3>
+  <input type="checkbox" value="isLarge" (change)="isLarge = !isLarge" /> isLarge <br>
+  <div [ngStyle]="{'font-size': isLarge ? '50px' : '12px'}">
+    Conditional Styles
+  </div>
+</div>
+<hr>
+<div>
+  <h3>ngClass</h3>
+  <input type="checkbox" value="isColorize" (change)="isColorize = !isColorize" /> Color <br>
+  <input type="checkbox" value="isColorizeBg" (change)="isColorizeBg = !isColorizeBg" /> Color background <br>
+  <input type="checkbox" value="isMonospace" (change)="isMonospace = !isMonospace" /> Monospace <br>
+
+  <div [ngClass]="{'colorize': isColorize, 'colorize-bg': isColorizeBg, 'monospace': isMonospace}">
+    Conditional classes
+  </div>
+</div>
