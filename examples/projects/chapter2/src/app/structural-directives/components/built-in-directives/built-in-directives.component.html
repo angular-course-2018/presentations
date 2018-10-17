@@ -1,9 +1,16 @@
 <div>
   <h3>*ngIf</h3>
-
+  <input type="checkbox" value="isDisplayed" (change)="isDisplayed = !isDisplayed" /> isDisplayed <br>
+  <div *ngIf="isDisplayed">
+    Conditional Display
+  </div>
 </div>
 <hr>
 <div>
   <h3>*ngFor</h3>
-  
+  <button type="button" (click)="push()">PUSH</button>
+  <button type="button" (click)="items.pop()">POP</button>
+  <ul>
+    <li *ngFor="let item of items">{{item}}</li>
+  </ul>
 </div>

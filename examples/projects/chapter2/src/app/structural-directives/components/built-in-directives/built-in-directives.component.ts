@@ -6,4 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./built-in-directives.component.scss']
 })
 export class BuiltInDirectivesComponent {
+  items = [];
+  push() {
+    this.items.push(this.items.length);
+  }
 }
