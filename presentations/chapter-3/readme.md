@@ -1,0 +1,5 @@
+- DI
+- Services
+- Observables + RxJS
+- HttpClient
+- 
