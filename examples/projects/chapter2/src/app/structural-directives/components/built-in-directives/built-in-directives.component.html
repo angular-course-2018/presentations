@@ -1,8 +1,39 @@
 <div>
   <h3>*ngIf</h3>
   <input type="checkbox" value="isDisplayed" (change)="isDisplayed = !isDisplayed" /> isDisplayed <br>
-  <div *ngIf="isDisplayed">
+  <div *ngIf="isDisplayed" class="result">
     Conditional Display
+  </div>
+</div>
+<hr>
+<div>
+  <h3>ngSwitch</h3>
+  <fieldset>
+      <legend>Select a language</legend>
+      <div>
+          <input type="radio" id="heb" name="language" value="heb" (change)="language = 'heb'" />
+          <label for="heb">Hebrew</label>
+      </div>
+      <div>
+          <input type="radio" id="rus" name="language" value="rus" (change)="language = 'rus'" />
+          <label for="rus">Russian</label>
+      </div>
+      <div>
+          <input type="radio" id="arb" name="language" value="arb" (change)="language = 'arb'" />
+          <label for="arb">Arabic</label>
+      </div>
+      <div>
+          <input type="radio" id="eng" name="language" value="eng" (change)="language = 'eng'" />
+          <label for="eng">English</label>
+      </div>
+      
+  </fieldset>
+  <div [ngSwitch]="language" class="result">
+    <div *ngSwitchCase="'heb'" style="text-align: right;">.לא אפיק קוד מזיק</div>
+    <div *ngSwitchCase="'rus'">Я не буду создавать вредоносный код.</div>
+    <div *ngSwitchCase="'arb'" style="text-align: right;">.لن أخرج الكود الضار</div>
+    <div *ngSwitchCase="'eng'">I will not produce harmful code.</div>
+    <div *ngSwitchDefault>Please select a language.</div>
   </div>
 </div>
 <hr>
@@ -10,7 +41,7 @@
   <h3>*ngFor</h3>
   <button type="button" (click)="push()">PUSH</button>
   <button type="button" (click)="items.pop()">POP</button>
-  <ul>
+  <ul class="result">
     <li *ngFor="let item of items">{{item}}</li>
   </ul>
 </div>
