@@ -263,7 +263,20 @@ export class FancyButtonComponent {
 				<img class="reset-img" src="../../assets/component-test.png" />
 			</section>
 			<section>
-				<h5>1. Prepare test module</h5>
+					<h5>1. Describe what you're going to test</h5>
+					<pre><code class="language-typescript" data-trim>	
+describe('FancyButtonComponent', () => {
+
+  it('should display initial value as button label');
+  it('should change button label when changing input value');
+  it('should emit `pressed` event when clicking the button');
+  it('should display default button label when input value is not defined');
+
+});
+						</code></pre>
+			</section>		
+			<section>
+				<h5>2. Configure testing module</h5>
 				<pre><code class="language-typescript" data-trim>
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
@@ -279,12 +292,11 @@ describe('AppComponent', () => {
       schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   }));
-
 });
 					</code></pre>
 			</section>
 			<section>
-					<h5>2. Create component instance and use it</h5>
+					<h5>3. Create component instance and use it</h5>
 					<pre><code class="language-typescript" data-trim>
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
@@ -303,13 +315,54 @@ describe('AppComponent', () => {
 						</code></pre>
 				</section>
 				<section>
-					DOM Interactions
+					<h5>DOM Interactions</h5>
+<pre><code class="language-typescript" data-trim>
+it('should render title in a h1 tag', () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const compiled = fixture.debugElement.nativeElement;
+  
+  const h1Text = compiled.querySelector('h1').textContent;
+});
+
+it('should emit `press` event when clicking title', () => {
+  const h1ElementDe = fixture.debugElement.query(By.css('h1'));
+  const h1ElementEl = h1ElementDe.nativeElement;
+
+  h1ElementDe.triggerEventHandler('click', null);
+  // or
+  h1ElementEl.click();
+});
+</code></pre>
 				</section>
 				<section>
-					Component Input
+						<h5>Component Input</h5>
+<pre><code class="language-typescript" data-trim>
+it('should chage title when changing title input', () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const component = fixture.componentInstance;
+
+  //Modify input
+  component.title = 'New Title';
+  fixture.detectChanges();
+
+  ...
+});
+</code></pre>
 				</section>
 				<section>
-					Component Output
+					<h5>Component Output</h5>
+<pre><code class="language-typescript" data-trim>
+it('should emit `press` event with payload `title pressed` when ...', () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const component = fixture.componentInstance;
+
+  expect.assertions(1); //ensure no false positive
+  
+  component.press.subscribe(data => {
+    expect(data).toEqual('title pressed');
+  });
+});
+</code></pre>
 				</section>
 			<section>
 				<h3>Action Time</h3>
