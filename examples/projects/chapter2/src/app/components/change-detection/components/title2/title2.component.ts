@@ -11,16 +11,16 @@ export class Title2Component {
   private _title = 'This is Title 2 Component';
 
   set title(title: string) {
+    colorfulLogger('SET title -- Title2Component', '#b2a5ff');
     this._title = title;
   }
 
   get title() {
-    colorfulLogger('Change Detection called on Title2Component', '#ffeb01');
+    colorfulLogger('GET title -- Title2Component', '#ffeb01');
     return this._title;
   }
 
   changeTitle() {
-    colorfulLogger('----- Changing the title in Title2Component -----', '#b2a5ff');
     this.title = 'title 2 changed!';
   }
 }

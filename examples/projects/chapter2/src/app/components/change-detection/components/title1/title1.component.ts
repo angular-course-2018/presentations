@@ -8,7 +8,7 @@ import { colorfulLogger } from 'projects/common/colorful-logger/logger';
 })
 export class Title1Component {
   get title() {
-    colorfulLogger('Change Detection called on Title1Component', '#1ccaff');
+    colorfulLogger('GET title -- Title1Component', '#1ccaff');
     return 'This is Title 1 Component';
   }
 }
