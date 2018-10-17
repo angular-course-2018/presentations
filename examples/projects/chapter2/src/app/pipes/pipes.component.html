@@ -13,5 +13,14 @@
     {{ myObj | json }}
 </div>
 <hr>
-<h3>custom goes here</h3>
+<h3>Async</h3>
+<div class="result">
+    {{ asyncCall | async }}
+    <span *ngIf="isLoading">Loading...</span>
+</div>
+<hr>
+<h3>My Timer Pipe</h3>
+<div class="result">
+    {{ {minutes: 3, seconds: 13} | timer }}
+</div>
 <hr>

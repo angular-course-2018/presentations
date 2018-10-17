@@ -12,4 +12,12 @@ export class PipesComponent {
         second: 2,
     };
 
+    isLoading = true;
+    asyncCall = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('resolved!!');
+            this.isLoading = false;
+        }, 3000);
+    });
+
 }
