@@ -6,6 +6,7 @@ import { ChangeDetectionModule } from './change-detection/change-detection.modul
 import { appRoutes } from './app.routes';
 import { AttributeDirectiveModule } from './attribute-directives/attribute-directives.module';
 import { CommonModule } from '@angular/common';
+import { StructuralDirectiveModule } from './structural-directives/structural-directives.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     ChangeDetectionModule,
     AttributeDirectiveModule,
+    StructuralDirectiveModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],

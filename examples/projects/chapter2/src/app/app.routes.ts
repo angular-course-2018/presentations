@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ChangeDetectionComponent } from './change-detection/change-detection.component';
 import { AttributeDirectiveComponent } from './attribute-directives/attribute-directive.component';
+import { StructuralDirectiveComponent } from './structural-directives/structural-directive.component';
 
 export const appRoutes: Routes = [
     {
@@ -10,5 +11,9 @@ export const appRoutes: Routes = [
     {
         path: 'attr-dir',
         component: AttributeDirectiveComponent,
+    },
+    {
+        path: 'struct-dir',
+        component: StructuralDirectiveComponent,
     }
 ];
