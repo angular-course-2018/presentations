@@ -1,0 +1,5 @@
+<h3>Lifecycle exmaple</h3>
+Title: <input style="width: 70%" type="text" [value]="title" (change)="update($event.currentTarget.value)" />
+<br>
+<input type="checkbox" [value]="show" (change)="show = !show">Show component
+<app-lifecycle-header *ngIf="show" [title]="title"></app-lifecycle-header>
