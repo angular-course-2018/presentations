@@ -19,7 +19,7 @@ const groupOfTeachers = new Group<Teacher>([
 groupOfTeachers.group[0].talk();
 groupOfTeachers.group[0].teach();
 
-export class GroupOfPeople<T extends Person>{
+export class GroupOfPeople<T extends Person> {
     constructor(public group: T[]) {
 
     }
@@ -45,7 +45,7 @@ function tryToTalk(maybeWillTalk: unknown) {
     }
 }
 
-//this function returns tuple with defined types.
+// this function returns tuple with defined types.
 function tryPower(maybeNumber: unknown): [Error | null, number] {
     if (typeof maybeNumber !== 'number') {
         return [new Error('variable is not a number'), 0];
