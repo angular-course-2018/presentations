@@ -46,26 +46,103 @@
 				<i>Coding pattern in which a class asks for dependencies from external sources rather than creating them itself.</i>
 			</section>
 			<section>
-				<h3><img style="margin: 0;" height="80px" src="../../assets/box.png" class="reset-img"> How DI works</h3>
+				<h3><img style="margin: 0;" height="80px" src="../../assets/box.png" class="reset-img"> Imagine a box</h3>
 			</section>
 			<section>
 				<img src="../../assets/di-provide.png" class="reset-img">
 			</section>
 			<section>
 				<h5>Providing a service in Angular</h5>
+<pre><i>game.service.ts</i><code class="language-typescript" data-trim>
+@Injectable()
+export class GameService {
+  cards: Card[];
+
+  startGame() {...}
+  endGame() {...}
+  pickCard(card: Card) {...}
+}
+</code>
+<i>app.module.ts</i><code class="language-typescript" data-trim>
+@NgModule({
+  providers: [ GameService ],
+  //...
+})
+export class AppModule { }
+</code>
+</pre>
 			</section>
 			<section>
 				<img src="../../assets/di-inject.png" class="reset-img">
 			</section>
 			<section>
 				<h5>Injecting a service in Angular</h5>
+<pre><i>board.component.ts</i><code class="language-typescript" data-trim>
+@Component({/*...*/})
+export class BoardComponent {
+  constructor(
+    private gameService: GameService,
+  ){}
+
+  letsGo() {
+    this.gameService.startGame();
+  }
+}
+</code>
+</pre>
 			</section>
 			<section>
 				<h3>DI Benefits</h3>
+				<b>Reusable</b><br>
+				<b>Readable</b><br>
+				<b>Testable</b><br>
 			</section>
+			<section>
+				<img src="../../assets/components-intro.png" class="reset-img">
+			</section>	
 			<section>
 				<h3>Tree of injectors</h3>
 				<img src="../../assets/di-tree.png" class="reset-img">
+			</section>
+			<section>
+				<h3>Tree of injectors</h3>
+				<img src="../../assets/di-tree-complex.png" style="margin: -65px 0 0 0" class="reset-img">
+			</section>
+			<section>
+					<i>Additional ways to provide services</i>
+			</section>
+			<section>
+					<h5>From the service itself</h5>
+<pre><i>game.service.ts</i><code class="language-typescript" data-trim>
+@Injectable({
+  providedIn: 'root' | GameModule
+})
+export class GameService {
+  cards: Card[];
+
+  startGame() {...}
+  endGame() {...}
+  pickCard(card: Card) {...}
+}
+</code></pre>
+<br>
+<i style="font-size: 30px; float: left; text-align: left;"><b>'root'</b>: available to all app via the root injector.</i><br>
+<i style="font-size: 30px; float: left; text-align: left;"><b>GameModule</b>: available only when importing the GameModule in other module, same as the previous example.</i>
+			</section>
+			<section>
+					<h5>Per component instance</h5>
+<pre><i>board.component.ts</i><code class="language-typescript" data-trim>
+@Component({
+  provide: [GameService],
+  // ...
+})
+export class BoardComponent {
+  // ...
+}
+</code></pre>
+<br>
+<i style="font-size: 30px; float: left; text-align: left;"><b>note</b>: since each provide creates an instance of the class, this will create instance per each component usage (instance).</i>
+
 			</section>
 			<section>
 				<h3>Testing a service</h3>
