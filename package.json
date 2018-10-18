@@ -20,6 +20,7 @@
   "homepage": "https://github.com/angular-course-2018/presentations#readme",
   "devDependencies": {
     "live-server": "^1.2.0",
-    "local-web-server": "^2.6.0"
+    "local-web-server": "^2.6.0",
+    "typescript": "^3.1.1"
   }
 }
