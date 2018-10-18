@@ -1,0 +1,10 @@
+<div class="child">
+    <h5>Child Component</h5>
+    <div>Title from parent: <i class="input">{{title}}</i></div>
+    
+    Modify subtitle value and watch it changing in parent: 
+    <input type="text" 
+            [value]="subtitle" 
+            (keyup)="notifySubtitleChange($event.currentTarget.value)" />
+
+</div>

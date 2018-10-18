@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LifecycleModule } from './lifecycle/lifecycle.module';
+import { IntroModule } from './intro/intro.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { LifecycleModule } from './lifecycle/lifecycle.module';
   ],
   imports: [
     BrowserModule,
+    IntroModule,
     LifecycleModule,
   ],
   providers: [],

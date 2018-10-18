@@ -1,0 +1,18 @@
+<div class="parent">
+
+    <h3>Parent Component</h3>
+    Modify title value and watch it changing in child: <input type="text" [value]="title" (keyup)="title = $event.currentTarget.value" />
+    <br><br>
+    <app-child-component
+        [title]="title"
+        (subtitleChange)="onSubtitleChange($event)"
+    ></app-child-component>
+
+    <br>
+    <i class="output">Subtitle: {{subtitle}}</i>
+
+    <br>
+    <br>
+    
+    <ng-content></ng-content>
+</div>
