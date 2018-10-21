@@ -14,7 +14,7 @@ export class LifecycleHeaderComponent implements OnInit, OnChanges, OnDestroy {
 
 
     ngOnChanges(changes: SimpleChanges) {
-        console.log('♻️ one of the inputs chaned: ', changes);
+        console.log('♻️ one of the inputs changed: ', changes);
     }
 
     ngOnDestroy() {
