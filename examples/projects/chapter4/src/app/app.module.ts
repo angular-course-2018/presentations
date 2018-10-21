@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ThrottledScrollComponent } from './throttled-scroll/throttled-scroll.component';
 import { HttpClientExampleComponent } from './http-client-example/http-client-example.component';
 import { SpinnerComponent } from './http-client-example/spinner.component';
+import { HttpClientExampleService } from './http-client-example/http-client-example.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { SpinnerComponent } from './http-client-example/spinner.component';
     CommonModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClientExampleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

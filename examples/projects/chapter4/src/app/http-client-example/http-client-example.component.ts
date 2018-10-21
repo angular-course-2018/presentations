@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { tap, catchError, pluck, retry } from 'rxjs/operators';
 import { Subscription, of } from 'rxjs';
 import { UserProfile } from './UserProfile.model';
+import { HttpClientExampleService } from './http-client-example.service';
 
 @Component({
     selector: 'app-http-client-example-component',
@@ -15,7 +16,7 @@ export class HttpClientExampleComponent {
     httpRequest: Subscription;
     response;
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private exampleService: HttpClientExampleService) {
         this.reset();
         this.handleError = this.handleError.bind(this);
     }
@@ -24,20 +25,19 @@ export class HttpClientExampleComponent {
         this.reset();
         this.isLoading = true;
 
-        this.httpRequest = this.httpClient.get<UserProfile>('http://localhost:3000/profile/nn605g').pipe(
-            pluck('username'),
-            tap(() => this.isLoading = false),
-        ).subscribe((res: string) => this.response = res);
+        this.httpRequest = this.exampleService.fetchWithSuccess$()
+                                .subscribe((res) => this.response = res, null, () => this.isLoading = false);
     }
 
     fetchWithError() {
         this.reset();
         this.isLoading = true;
 
-        this.httpRequest = this.httpClient.get<UserProfile>('http://localhost:3000/profile/error').pipe(
+        this.httpRequest = this.exampleService.fetchWithError$()
+        .pipe(
             catchError(this.handleError),
-            tap(() => this.isLoading = false),
-        ).subscribe((res: string) => this.response = res);
+        )
+        .subscribe((res) => this.response = res, null, () => this.isLoading = false);
     }
 
     cancel() {
@@ -49,12 +49,11 @@ export class HttpClientExampleComponent {
         this.reset();
         this.isLoading = true;
 
-        this.httpRequest = this.httpClient.get<UserProfile>('http://localhost:3000/profile/ice-cream').pipe(
-            retry(1),
-            pluck('username'),
+        this.httpRequest = this.exampleService.fetchMaybe$()
+        .pipe(
             catchError(this.handleError),
-            tap(() => this.isLoading = false),
-        ).subscribe((username: string) => this.response = username);
+        )
+        .subscribe((res) => this.response = res, null, () => this.isLoading = false);
     }
 
     reset() {
@@ -66,7 +65,7 @@ export class HttpClientExampleComponent {
         this.isError = false;
     }
 
-    private handleError(error: HttpErrorResponse) {
+    private handleError(error) {
         this.isError = true;
         // return an observable with a user-facing error message
         return of('Something bad happened; please try again later.');
