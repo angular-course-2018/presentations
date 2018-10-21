@@ -6,20 +6,54 @@
 }
 .fibo-item{
     padding: 2px;
-    background: #e4e002;
     font-size: 10px;
 }
 
 .grid-container {
-    height: 250px;
-    width: 80%;
+    height: 330px;
+    width: 224px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1px 1px;
-    grid-template-areas: "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a5 a5 a5 a5 a5 a1 a2 a2 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a5 a5 a5 a5 a5 a0 a2 a2 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a5 a5 a5 a5 a5 a3 a3 a3 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a5 a5 a5 a5 a5 a3 a3 a3 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" "a5 a5 a5 a5 a5 a3 a3 a3 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13";
+    grid-template-areas: 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a8 a8 a8 a8 a8 a8 a8 a8 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a5 a5 a5 a5 a5 a1 a2 a2 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a5 a5 a5 a5 a5 a1 a2 a2 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a5 a5 a5 a5 a5 a3 a3 a3 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a5 a5 a5 a5 a5 a3 a3 a3 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13" 
+    "a5 a5 a5 a5 a5 a3 a3 a3 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13 a13"
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
+    "a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 a21 "
   }
-  .a13 { grid-area: a13; background: #b0fc59;}
+  .a21 { grid-area: a21; background: #5969fc;}
+  .a13 { grid-area: a13; background: #e4e002;}
 
   .a8 { grid-area: a8; background: #02b7e4;}
   
@@ -31,4 +65,3 @@
   
   .a1 { grid-area: a1; background: #ffffff;}
   
-  .a0 { grid-area: a0; }
