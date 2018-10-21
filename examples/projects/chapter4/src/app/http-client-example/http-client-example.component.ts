@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { tap, catchError, pluck, retryWhen, concatMap, delay, retry, map } from 'rxjs/operators';
-import { Subscription, Observable, throwError, of, interval } from 'rxjs';
+import { tap, catchError, pluck } from 'rxjs/operators';
+import { Subscription, of } from 'rxjs';
 import { UserProfile } from './UserProfile.model';
 
 @Component({
@@ -22,7 +22,6 @@ export class HttpClientExampleComponent {
 
     fetchWithSuccess() {
         this.reset();
-
         this.isLoading = true;
 
         this.httpRequest = this.httpClient.get<UserProfile>('http://localhost:3000/profile/nn605g').pipe(
@@ -33,7 +32,6 @@ export class HttpClientExampleComponent {
 
     fetchWithError() {
         this.reset();
-
         this.isLoading = true;
 
         this.httpRequest = this.httpClient.get<UserProfile>('http://localhost:3000/profile/error').pipe(
@@ -49,9 +47,9 @@ export class HttpClientExampleComponent {
 
     retry() {
         this.reset();
-
         this.isLoading = true;
 
+        // doesn't work currently, retryWhen fires also on 200OK
     }
 
     reset() {
