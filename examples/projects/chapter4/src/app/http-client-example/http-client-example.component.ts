@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { tap, catchError, pluck } from 'rxjs/operators';
+import { tap, catchError, pluck, retry } from 'rxjs/operators';
 import { Subscription, of } from 'rxjs';
 import { UserProfile } from './UserProfile.model';
 
@@ -49,7 +49,12 @@ export class HttpClientExampleComponent {
         this.reset();
         this.isLoading = true;
 
-        // doesn't work currently, retryWhen fires also on 200OK
+        this.httpRequest = this.httpClient.get<UserProfile>('http://localhost:3000/profile/ice-cream').pipe(
+            retry(1),
+            pluck('username'),
+            catchError(this.handleError),
+            tap(() => this.isLoading = false),
+        ).subscribe((username: string) => this.response = username);
     }
 
     reset() {
