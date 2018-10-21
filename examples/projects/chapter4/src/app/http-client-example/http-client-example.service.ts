@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { pluck, tap, catchError, retry } from 'rxjs/operators';
-import { UserProfile } from './UserProfile.model';
-import { of, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { pluck, retry } from 'rxjs/operators';
+import { UserProfile } from './models/UserProfile.model';
 
 @Injectable()
 export class HttpClientExampleService {

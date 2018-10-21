@@ -1,8 +1,8 @@
 <h1>Fibonacci Generator</h1>
-<input type="number" [value]="numOfItems" (change)="numOfItems = $event.currentTarget.value">
 <button (click)="start()">START</button>
-<div class="fibo-series">
+<div class="grid-container">
     <div class="fibo-item"
         *ngFor="let item of series$ | async"
-        [ngStyle]="{width: item * 10 + 'px', height: item * 10 +'px'}">{{item}}</div>
+        [ngClass]="'a'+ item"
+       >{{item}}</div>
 </div>

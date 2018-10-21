@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "create:chapter": "echo 'use: ng generate application chapter[:number] --style=scss' ",
-    "server:chapter4": "ts-node projects/chapter4/src/app/http-client-example/server.ts"
+    "server:chapter4": "ts-node projects/chapter4/src/app/http-client-example/demo-server/server.ts"
   },
   "private": true,
   "dependencies": {

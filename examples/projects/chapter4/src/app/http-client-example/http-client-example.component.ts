@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { tap, catchError, pluck, retry } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Subscription, of } from 'rxjs';
-import { UserProfile } from './UserProfile.model';
 import { HttpClientExampleService } from './http-client-example.service';
 
 @Component({

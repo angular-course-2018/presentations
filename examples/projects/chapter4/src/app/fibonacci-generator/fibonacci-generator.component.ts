@@ -9,7 +9,7 @@ import { scan, tap, pluck, takeWhile } from 'rxjs/operators';
 })
 export class FibonacciGeneratorComponent {
     series$: Observable<number[]>;
-    numOfItems = 5;
+    numOfItems = 7;
 
     start() {
         this.series$ = interval(500)

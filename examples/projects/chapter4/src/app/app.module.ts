@@ -6,7 +6,7 @@ import { FibonacciGeneratorComponent } from './fibonacci-generator/fibonacci-gen
 import { CommonModule } from '@angular/common';
 import { ThrottledScrollComponent } from './throttled-scroll/throttled-scroll.component';
 import { HttpClientExampleComponent } from './http-client-example/http-client-example.component';
-import { SpinnerComponent } from './http-client-example/spinner.component';
+import { SpinnerComponent } from './http-client-example/components/spinner.component';
 import { HttpClientExampleService } from './http-client-example/http-client-example.service';
 
 @NgModule({
