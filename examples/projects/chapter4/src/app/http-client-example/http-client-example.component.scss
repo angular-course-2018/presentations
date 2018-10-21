@@ -1,0 +1,7 @@
+.response {
+    font-size: 30px;
+    color: rgb(2, 116, 17);
+    &.error {
+        color: rgb(212, 0, 0);
+    }
+}

@@ -1,0 +1,11 @@
+<h1>HTTP Client example</h1>
+<button (click)="fetchWithSuccess()">Fetch - success</button>
+<button (click)="fetchWithError()">Fetch - failure</button>
+<button (click)="cancel()">Cancel</button>
+<button (click)="retry()">Retry</button>
+<br>
+
+<app-spinner-component *ngIf="isLoading"></app-spinner-component>
+
+<div class="response" [ngClass]="{'error': isError}" 
+        *ngIf="response">{{response}}</div>
