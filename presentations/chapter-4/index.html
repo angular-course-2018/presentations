@@ -78,10 +78,27 @@
 				<i>Application state</i>
 			</section>
 			<section>
-				<h5>Example</h5>
+				<i>Publish value each 1000 ms</i>
+				<img class="reset-img" style="margin: 0" height="130px" src="../../assets/observable-of.png" alt="">
 				<pre><code class="language-typescript" data-trim>
+import { interval } from 'rxjs';
 
-				</code></pre>
+// Create an Observable
+const secondsCounter = interval(1000);
+
+// Subscribe
+const subscriber = secondsCounter.subscribe(n => 
+		console.log('Value: ', n));
+
+// Unsubscribe
+setTimeout(() => { subscriber.unsubscribe(); }, 3000);
+
+</code>
+<i>console output:</i><code class="language-javascript" data-trim>
+Value: 0
+Value: 1
+Value: 2
+</code></pre>
 			</section>
 			<section><h3>Operators</h3></section>
 			<section>
