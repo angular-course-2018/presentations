@@ -1,0 +1,8 @@
+<input type="number" [value]="rate"  (change)="rate = $event.currentTarget.value">
+<button (click)="start()">START</button>
+<button (click)="stop()">STOP</button>
+<div>Count: {{eventsCount}}</div>
+
+<div class="scroll-wrapper" #scrollWrapper>
+    <div class="scroll-area">scroll here</div>
+</div>

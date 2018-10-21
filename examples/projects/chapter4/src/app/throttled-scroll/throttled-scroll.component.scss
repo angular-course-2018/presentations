@@ -1,0 +1,10 @@
+.scroll-area {
+    // background: #a4e7ff;
+
+    background: linear-gradient(135deg, #efc5ca 0%,#c3ff5b 20%,#ccb12a 42%,#3553ff 65%,#27bc36 80%,#f18e99 100%);
+    height: 10000px;
+}
+.scroll-wrapper {
+    height: 100px;
+    overflow-y: scroll; 
+}

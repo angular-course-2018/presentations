@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { interval, Subscription, Observable } from 'rxjs';
+import { interval, Observable } from 'rxjs';
 import { scan, tap, pluck, takeWhile } from 'rxjs/operators';
 
 @Component({
