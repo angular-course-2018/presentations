@@ -1,0 +1,9 @@
+<nav>
+    <a routerLink="/crisis-center"  routerLinkActive="active">Home</a>
+    <a [routerLink]="['/hero', 323]" routerLinkActive="active">Batman</a>
+    <a [routerLink]="['/hero', 122]" routerLinkActive="active">Wonder Woman</a>
+</nav>
+<div class="content">
+
+        <router-outlet></router-outlet>
+</div>
