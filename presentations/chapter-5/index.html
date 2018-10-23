@@ -40,9 +40,8 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section><i>intro placeholder...</i></section>
+			<section><h5>What is Browser Navigation?</h5></section>
 			<section>
-				<h5>What is Browser Navigation</h5>
 				<img src="../../assets/browser-routing.png" height="500px" class="reset-img">
 			</section>
 			<section>
@@ -68,12 +67,100 @@ app.all('/*', (req, res) => { res.sendfile('index.html'); });
 <i>*express.js configuration example</i>
 </pre>
 				</section>
-			<section><h3>Angular Router</h3></section>
-			<section><h5>Basic configuration</h5></section>
-			<section><h5>Navigation from HTML</h5></section>
-			<section><h5>Navigation from component</h5></section>
-			<section><h5>Route parameters</h5></section>
-			<section><h3><img src="../../assets/guard.png" class="reset-img" height="90px" style="margin: 0"> Route guards</h3> see https://medium.com/@amcdnl/angular-guards-more-than-security-c04be35adb00</section>
+			<section><h3>Angular Router</h3><img src="../../assets/components-router.png" class="reset-img" style="margin: 0" ></section>
+			<section><h5 style="margin: 0; font-size: 30px;">Basic configuration</h5>
+<pre><i>app.routes.ts</i><code class="language-typescript" data-trim>
+import { Routes } from '@angular/router';
+
+export const appRoutes: Routes = [
+  { path: 'crisis-center', component: CrisisListComponent },
+  { path: 'hero/:id',      component: HeroDetailComponent },
+  {     
+    path: '', 
+    redirectTo: '/crisis-center', 
+    pathMatch: 'full' 
+  },
+  { path: '**', component: PageNotFoundComponent }
+];
+</code>
+</pre>
+			</section>
+			<section><h5 style="margin: 0; font-size: 30px;">Basic configuration</h5>
+<pre><i>app.module.ts</i><code class="language-typescript" data-trim>
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { appRoutes } from './app.routes';
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes)
+  ],
+  bootstrap: [ AppComponent ],
+})
+export class AppModule { }
+</code>
+<i>app.component.html</i><code class="language-html" data-trim>
+&lt;router-outlet>&lt;/router-outlet>
+<!-- Routed components go here -->
+</code>
+</pre>
+			</section>
+			<section><h5>Navigation from HTML</h5>
+<pre><i>app.component.html</i><code class="language-html" data-trim>
+
+&lt;nav>
+  &lt;a routerLink="/crisis-center">Crisis Center&lt;/a>
+  &lt;a [routerLink]="['/hero', 323]">Batman&lt;/a>
+  &lt;a [routerLink]="['/hero', 122]">Wonder Woman&lt;/a>
+&lt;/nav>
+
+&lt;router-outlet>&lt;/router-outlet>
+<!-- Routed components go here -->
+</code>
+</pre>
+			</section>
+			<section><h5>Navigation from component</h5>
+<pre><i>app.component.ts</i><code class="language-typescript" data-trim>
+class AppComponent{
+  constructor(
+    private router: Router,
+    private location: Location,
+  ){}
+
+  getWonderWoman() {
+    this.router.navigate(['/hero', 122]);
+  }
+
+  goBack() {
+    this.location.back();
+  }
+}
+</code>
+</pre>
+			</section>
+			<section><h5>Route parameters</h5>
+<pre><i>hero.component.ts</i><code class="language-typescript" data-trim>
+class HeroComponent implements OnInit{
+  constructor(
+    private route: ActivatedRoute,
+    private service: HeroService,
+  ){}
+
+  ngOnInit() {
+    this.hero$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+          this.service.getHero(params.get('id')))
+    );
+  }
+}
+</code>
+<i>hero.component.html</i>
+<code class="language-html" data-trim>
+&lt;div>{{ hero$ | async }}&lt;/div>
+</code>
+</pre>
+			</section>
+			<section><h3><img src="../../assets/guard.png" class="reset-img" height="90px" style="margin: 0"> Route guards</h3></section>
 			<section><h5>Modules and routes configurations</h5></section>
 			<section><h5>Lazy loading</h5></section>
 			<section><h5>Tests</h5></section>
