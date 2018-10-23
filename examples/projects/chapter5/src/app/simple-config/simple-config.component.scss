@@ -27,6 +27,8 @@ a {
 }
 
 .content {
+    display: flex;
+    justify-content: center;
     border: 3px solid #5447c7; 
     padding: 6px;
 }
