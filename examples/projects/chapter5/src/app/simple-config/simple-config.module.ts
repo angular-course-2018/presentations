@@ -17,7 +17,8 @@ import { CommonModule } from '@angular/common';
     ],
     imports: [
         CommonModule,
-        RouterModule.forRoot(alternativeAppRoutes)
+        RouterModule.forRoot(appRoutes)
+        // RouterModule.forRoot(alternativeAppRoutes)
     ],
     exports: [SimpleConfigComponent],
     providers: [HeroesService]

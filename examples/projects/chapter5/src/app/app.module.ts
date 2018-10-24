@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { SimpleConfigModule } from './simple-config/simple-config.module';
 import { CommonModule } from '@angular/common';
 import { AuthzExampleModule } from './guards/authorization/authz-example.module';
+import { UnsavedChangesModule } from './guards/unsaved-changes/unsaved-changes.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,10 @@ import { AuthzExampleModule } from './guards/authorization/authz-example.module'
   imports: [
     BrowserModule,
     CommonModule,
-    SimpleConfigModule,
-    // AuthzExampleModule,
+
+    // SimpleConfigModule, // example 1 + 2: Simple config + children
+    // AuthzExampleModule, // example 3: CanActivate
+    UnsavedChangesModule, // example 4: CanDeactivate
   ],
   providers: [],
   bootstrap: [AppComponent]
