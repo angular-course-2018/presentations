@@ -6,6 +6,7 @@ import { appRoutes } from './app.routes';
 import { ContactUsComponent } from './components/contact-us.component';
 import { SettingsComponent } from './components/settings.component';
 import { UnsavedChangesComponent } from './unsaved-changes.component';
+import { AppService } from './app.service';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,9 @@ import { UnsavedChangesComponent } from './unsaved-changes.component';
         CommonModule,
     ],
     exports: [UnsavedChangesComponent],
-    providers: [CanDeactivateGuard]
+    providers: [
+        CanDeactivateGuard,
+        AppService,
+    ]
 })
 export class UnsavedChangesModule {}

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { CanDeactivateHook } from '../interfaces/can-deactivate-hook.interface';
+import { AppService } from '../app.service';
 
 @Component({
     selector: 'app-contact-us',
@@ -14,11 +15,13 @@ import { Router } from '@angular/router';
         <i>is dirty: {{isDirty}}</i>
     `
 })
-export class ContactUsComponent {
+export class ContactUsComponent implements CanDeactivateHook {
     content = '';
     isDirty = false;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private appService: AppService) {
+        this.content = appService.contactUs;
+     }
 
     onChange(newVal) {
         this.isDirty = true;
@@ -30,6 +33,7 @@ export class ContactUsComponent {
     }
 
     save() {
+        this.appService.contactUs = this.content;
         this.isDirty = false;
     }
 

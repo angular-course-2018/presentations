@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
-
-import { UnsavedChangesComponent } from './unsaved-changes.component';
+import { CanDeactivateHook } from './interfaces/can-deactivate-hook.interface';
 
 @Injectable()
-export class CanDeactivateGuard implements CanDeactivate<UnsavedChangesComponent> {
-    canDeactivate(component: UnsavedChangesComponent) {
+export class CanDeactivateGuard implements CanDeactivate<CanDeactivateHook> {
+    canDeactivate(component: CanDeactivateHook) {
         return component.canDeactivate ? component.canDeactivate() : true;
     }
 }
