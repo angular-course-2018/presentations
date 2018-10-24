@@ -5,19 +5,19 @@ import { Roles } from './user-roles.model';
 @Component({
     selector: 'app-authz-example',
     template: `
-    Login as: <button (click)="loginAsFinance()">Finance User</button>
-    <button (click)="loginAsAdmin()">Admin User</button>
-    <h1>Current User: {{ authzService.userRoles }}</h1>
-    <nav>
-        <a routerLink="/"  routerLinkActive="active">Dashboard</a>
-        <a routerLink="/settings"  routerLinkActive="active">Admin Settings</a>
-    </nav>
-    <router-outlet></router-outlet>
+        Login as: <button (click)="loginAsFinance()">Finance User</button>
+        <button (click)="loginAsAdmin()">Admin User</button>
+        <h1>Current User: {{ authzService.userRoles }}</h1>
+        <nav>
+            <a routerLink="/"  routerLinkActive="active">Dashboard</a>
+            <a routerLink="/settings"  routerLinkActive="active">Admin Settings</a>
+        </nav>
+        <router-outlet></router-outlet>
     `,
     styles: [
         `
-        a { margin: 0 20px; }
-        nav { margin: 10px 0; }
+            a { margin: 0 20px; }
+            nav { margin: 10px 0; }
         `
     ]
 })
