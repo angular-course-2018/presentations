@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SimpleConfigModule } from './simple-config/simple-config.module';
 import { CommonModule } from '@angular/common';
+import { AuthzExampleModule } from './guards/authorization/authz-example.module';
 
 @NgModule({
   declarations: [
@@ -11,8 +12,9 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    SimpleConfigModule,
+    // SimpleConfigModule,
     CommonModule,
+    AuthzExampleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
