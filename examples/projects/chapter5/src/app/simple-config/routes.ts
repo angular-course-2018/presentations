@@ -13,3 +13,22 @@ export const appRoutes: Routes = [
     },
     { path: '**', component: NotFoundComponent }
 ];
+
+
+
+// alternative config
+export const alternativeAppRoutes: Routes = [
+    {
+        path: '',
+        children: [
+            { path: 'crisis-center', component: CrisisCenterComponent },
+            { path: 'hero/:id', component: HeroComponent },
+            {
+                path: '',
+                redirectTo: '/crisis-center',
+                pathMatch: 'full'
+            },
+        ],
+    },
+    { path: '**', component: NotFoundComponent },
+];

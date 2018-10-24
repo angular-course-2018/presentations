@@ -12,9 +12,9 @@ import { AuthzExampleModule } from './guards/authorization/authz-example.module'
   ],
   imports: [
     BrowserModule,
-    // SimpleConfigModule,
     CommonModule,
-    AuthzExampleModule,
+    SimpleConfigModule,
+    // AuthzExampleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

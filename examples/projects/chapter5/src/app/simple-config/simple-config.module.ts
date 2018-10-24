@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CrisisCenterComponent } from './components/crisis-center.component';
 import { HeroComponent } from './components/hero.component';
 import { NotFoundComponent } from './components/not-found.component';
-import { appRoutes } from './routes';
+import { appRoutes, alternativeAppRoutes } from './routes';
 import { HeroesService } from './services/heroes.service';
 import { CommonModule } from '@angular/common';
 
@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
     ],
     imports: [
         CommonModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(alternativeAppRoutes)
     ],
     exports: [SimpleConfigComponent],
     providers: [HeroesService]

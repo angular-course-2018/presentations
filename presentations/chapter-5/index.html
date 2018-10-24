@@ -163,6 +163,29 @@ class HeroComponent implements OnInit{
 </code>
 </pre>
 			</section>
+			<section>
+				<img src="../../assets/family.png" alt="family" class="reset-img" style="margin: 0; margin-bottom: -40px" width="400px">
+				<h3>Route Children</h3>
+			</section>
+			<section>
+				<pre><i>app.routes.ts</i><code class="language-typescript" data-trim>
+export const appRoutes: Routes = [
+  {
+    path: 'dc',
+    children: [
+      // http://www.hero-rentals.com/dc
+      { path: '', component: DCComponent },
+			
+      // http://www.hero-rentals.com/dc/crisis-center
+      { path: 'crisis-center', component: CrisisCenterComponent },
+      
+      // http://www.hero-rentals.com/dc/hero/122
+      { path: 'hero/:id', component: HeroComponent },
+    ],
+  },
+];
+      			</code></pre>
+			</section>
 			<section><h3><img src="../../assets/guard.png" class="reset-img" height="90px" style="margin: 0"> Route guards</h3></section>
 			<section><h3>CanActivate</h3>
 				<i>Decide if component can be loaded or not.</i>
