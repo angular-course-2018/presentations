@@ -17,7 +17,6 @@ import { CommonModule } from '@angular/common';
     ],
     imports: [
         CommonModule,
-        // RouterModule.forRoot(appRoutes)
         // RouterModule.forRoot(routesWithChildren)
         RouterModule.forChild(routesWithChildren)
     ],

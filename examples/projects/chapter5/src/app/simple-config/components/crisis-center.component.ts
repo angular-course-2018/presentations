@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class CrisisCenterComponent {
     constructor(
         private router: Router,
-    ) { console.log('---------------loadded!!'); }
+    ) { }
 
     getWonderWoman() {
         this.router.navigate(['/first/hero', 122]);
