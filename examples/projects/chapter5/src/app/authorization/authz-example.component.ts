@@ -9,8 +9,8 @@ import { Roles } from './user-roles.model';
         <button (click)="loginAsAdmin()">Admin User</button>
         <h1>Current User: {{ authzService.userRoles }}</h1>
         <nav>
-            <a routerLink="/"  routerLinkActive="active">Dashboard</a>
-            <a routerLink="/settings"  routerLinkActive="active">Admin Settings</a>
+            <a routerLink="/second"  routerLinkActive="active">Dashboard</a>
+            <a routerLink="/second/settings"  routerLinkActive="active">Admin Settings</a>
         </nav>
         <router-outlet></router-outlet>
     `,

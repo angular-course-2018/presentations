@@ -29,7 +29,7 @@ export class ContactUsComponent implements CanDeactivateHook {
     }
 
     goBack() {
-        this.router.navigate(['/settings']);
+        this.router.navigate(['/third/settings']);
     }
 
     save() {

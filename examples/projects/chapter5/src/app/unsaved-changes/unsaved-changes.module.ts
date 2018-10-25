@@ -15,8 +15,9 @@ import { AppService } from './app.service';
         SettingsComponent
     ],
     imports: [
-        RouterModule.forRoot(appRoutes),
         CommonModule,
+        // RouterModule.forRoot(appRoutes),
+        RouterModule.forChild(appRoutes),
     ],
     exports: [UnsavedChangesComponent],
     providers: [

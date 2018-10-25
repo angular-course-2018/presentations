@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../services/heroes.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Hero } from '../models/hero.mode';
 import { Location } from '@angular/common';
 

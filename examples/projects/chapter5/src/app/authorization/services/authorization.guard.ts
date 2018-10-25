@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
         if (this.authService.isAuthorized(pathAllowedRoles)) {
             return true;
         }
-        this.router.navigate(['/forbidden']);
+        this.router.navigate(['/second/forbidden']);
         return false;
     }
 }

@@ -22,7 +22,8 @@ import { CommonModule } from '@angular/common';
         AuthGuard,
     ],
     imports: [
-        RouterModule.forRoot(appRoutes),
+        // RouterModule.forRoot(appRoutes),
+        RouterModule.forChild(appRoutes),
         CommonModule,
     ],
 })
