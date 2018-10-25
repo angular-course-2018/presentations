@@ -126,6 +126,23 @@
 </code></pre>
 			</section>
 			<section>
+				<h3>*ngFor: Tracking changes</h3>
+<pre><i>app.componnet.html</i><code class="language-html" data-trim>
+&lt;li *ngFor="let item of items;">{{item}}&lt;/li>
+
+<!-- vs -->
+
+&lt;li *ngFor="let item of items; trackBy: trackByFn;">{{item}}&lt;/li>
+</code>
+<i>app.componnet.ts</i>
+<code class="language-typescript" data-trim>
+trackByFn(index: number; item: Item) {
+  return item.id;
+}
+</code>
+</pre>
+			</section>
+			<section>
 				<h5>The * prefix is just a syntactic sugar</h5>
 <pre><code class="language-html" data-trim>
 &lt;div *ngIf="condition">⚡️⚡️⚡️&lt;/div>

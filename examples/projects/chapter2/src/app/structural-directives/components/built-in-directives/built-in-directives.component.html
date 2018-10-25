@@ -40,8 +40,17 @@
 <div>
   <h3>*ngFor</h3>
   <button type="button" (click)="push()">PUSH</button>
-  <button type="button" (click)="items.pop()">POP</button>
-  <ul class="result">
-    <li *ngFor="let item of items">{{item}}</li>
-  </ul>
+  <button type="button" (click)="pop()">POP</button>
+  <div style="display: flex;">
+    <ul class="result">
+      <li *ngFor="let item of items;">
+        <app-item [item]="item"></app-item>
+      </li>
+    </ul>
+    <ul class="result">
+      <li *ngFor="let item of items; trackBy: trackByTrackId">
+        <app-item [item]="item"></app-item>
+      </li>
+    </ul>
+  </div>
 </div>
