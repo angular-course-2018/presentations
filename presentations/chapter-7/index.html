@@ -23,24 +23,281 @@
 	</script>
 	<style>
 		body {
-		  background-image: url(../../assets/angular-logo.svg);
-		  background-repeat: no-repeat;
-		  background-size: 50% auto;
-		  background-position: -25% -60%;
+			background-image: url(../../assets/angular-logo.svg);
+			background-repeat: no-repeat;
+			background-size: 50% auto;
+			background-position: -25% -60%;
 		}
+
 		.reset-img {
-		  border: 0 !important;
-		  background: none !important;
-		  box-shadow: none !important;
+			border: 0 !important;
+			background: none !important;
+			box-shadow: none !important;
 		}
-		
+
+		.red-border {
+			border: 5px solid red !important;
+			position: absolute;
+			left: 45px;
+
+		}
+
+		.red-border-reducer-1 {
+			width: 350px;
+			height: 146px;
+			top: 114px;
+
+		}
+
+		.red-border-reducer-2 {
+			width: 350px;
+			height: 22px;
+			top: 300px;
+		}
+
+		.red-border-reducer-3 {
+			width: 829px;
+			height: 154px;
+			top: 380px;
+		}
+
+		.red-border-action-1 {
+			width: 655px;
+			height: 106px;
+			top: 143px;
+		}
+
+		.red-border-action-2 {
+			width: 655px;
+			height: 221px;
+			top: 269px;
+		}
+
+		.red-border-selector-1 {
+			width: 775px;
+			height: 82px;
+			top: 143px;
+		}
+
+		.red-border-selector-2 {
+			width: 775px;
+			height: 239px;
+			top: 244px;
+		}
+
+		.red-border-effect-1 {
+			width: 580px;
+			height: 50px;
+			top: 221px;
+		}
+
+		.red-border-effect-2 {
+			width: 580px;
+			height: 22px;
+			top: 352px;
+		}
+
+		.red-border-effect-3 {
+			width: 928px;
+			height: 205px;
+			top: 403px;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="reveal">
 		<div class="slides">
-            <section><i>intro placeholder...</i></section>
+			<section>
+				<h5>
+					<img style="margin: -20px 10px;" height="80px" class="reset-img" src="../../assets/the-one.png" />
+					One <span style="text-decoration: line-through">ring</span> state to rule them all!
+				</h5>
+			</section>
+			<section>
+				<h5>A single source of truth</h5>
+				<blockquote>...is the practice of structuring information models and associated data schema such that every data
+					element is stored exactly <b>once</b>...</blockquote>
+			</section>
+			<section>
+				<h5>not source, but state</h5>
+				<div style="background: url('../../assets/application-state-flow.png') no-repeat; background-size:contain; width:700px; height:500px; margin:0 auto;"></div>
+			</section>
+			<section>
+				<h4>State should...</h4>
+				<ul style="list-style: none;">
+					<li>be single</li>
+					<li>be immutable</li>
+					<li>be changed via single entrypoint</li>
+				</ul>
+			</section>
+			<section>
+				<h4>REDUX</h4>
+				<img src="../../assets/react_redux.png" class="reset-img" />
+			</section>
+			<section>
+				<h4><img class="reset-img" src="../../assets/ngrx.svg" style="height:80px; vertical-align: middle; margin-right: 10px ;" />Introducing
+					NgRx</h4>
+				<img src="../../assets/ngrx-architexture.png" />
+			</section>
+			<section>
+				<h4>NgRx parts</h4>
+				<ul style="list-style: none">
+					<li>Actions</li>
+					<li>Reducers</li>
+					<li>Selectors</li>
+					<li>Effects</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Actions</h4>
+				<pre>
+					<code>
+export enum BoardActionTypes {
+  PICK_CARD = '[BOARD] pick card',
+  SET_CARDS = '[BOARD] set cards',
+}
+	
+export class PickCard implements Action {
+  readonly type = BoardActionTypes.PICK_CARD;
+  constructor(public payload: Card) { }
+}
+export class SetCards implements Action {
+  readonly type = BoardActionTypes.SET_CARDS;
+  constructor(public payload: Card[]) { }
+}
+							  
+
+					</code>
+				</pre>
+				<div class="fragment red-border red-border-action-1"></div>
+				<div class="fragment red-border red-border-action-2"></div>
+			</section>
+			<section>
+				<h4>Reducers</h4>
+				<pre>
+					<code  style="min-height:450px" class="language-typescript" data-trim>
+export class BoardState {
+  cards: Card[];
+  selectedCard?: Card;
+  match: Match;
+}
+
+export function boardReducer(
+  state = new BoardState(),
+  action: BoardActions.BoardActions
+): BoardState {
+  switch (action.type) {
+    case BoardActions.SET_CARDS:
+      return { ...state, cards: [...action.payload] };
+    default:
+      return state;
+  }
+}
+					</code>
+				</pre>
+				<div class="fragment red-border red-border-reducer-1"></div>
+				<div class="fragment red-border red-border-reducer-2"></div>
+				<div class="fragment red-border red-border-reducer-3"></div>
+			</section>
+			<section>
+				<h4>Selectors</h4>
+				<pre>
+					<code>
+@Injectable()
+export class BoardSelectors {
+  constructor(private store: Store&lt;AppState>) { }
+
+  get cards$() {
+    return this.store.select(state => state.board.cards);
+  }
+
+  cardById$(id: number) {
+	return this.store.select(store => 
+	  store.board.cards.find(card => card.id === id));
+  }
+}
+					</code>
+				</pre>
+				<div class="fragment red-border red-border-selector-1"></div>
+				<div class="fragment red-border red-border-selector-2"></div>
+			</section>
+			<section>
+				<h4>Effects</h4>
+				<pre>
+					<code style="width:960px; max-height:860px">
+@Injectable()
+export class BoardEffects {
+  constructor(
+    private actions$: Actions,
+    private boardSelectors: BoardSelectors,
+  ) { }
+
+  @Effect() startGame$ = this.actions$
+    .ofType(BoardActionTypes.START_GAME)
+    .pipe(
+      switchMap((action) => {
+        return interval(1000).pipe(
+        takeUntil(this.actions$.ofType(BoardActionTypes.GAME_ENDED)),
+        withLatestFrom(this.boardSelectors.time$),
+        switchMap(([tick, currentTime]) => {
+          return [new BoardActions.SetTime(currentTime + 1000)];
+        })
+      );
+    })
+);
+					</code>
+				</pre>
+				<div class="fragment red-border red-border-effect-1"></div>
+				<div class="fragment red-border red-border-effect-2"></div>
+				<div class="fragment red-border red-border-effect-3"></div>
+
+			</section>
+			<section>
+				<h4>Wiring it all up!</h4>
+				<pre style="margin-bottom:0;">
+					<code class="language-typescript" data-trim>
+// in feature						
+imports: [
+  CommonModule,
+  EffectsModule.forFeature([BoardEffects]),
+  StoreModule.forFeature('board', boardReducer),
+],						
+					</code>
+				</pre>
+				<pre style="margin-top:0;">
+					<code class="language-typescript" data-trim>
+// in app						
+imports: [
+  BoardModule,
+  EffectsModule.forRoot([]),
+  StoreModule.forRoot({}),
+  StoreDevtoolsModule.instrument({
+    maxAge: 25, 
+    logOnly: environment.production,
+  }),
+],
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h4>Notable NgRx REactive Functions</h4>
+				<ul style="list-style: none;">
+					<li><code>.map</code></li>
+					<li><code>.switchMap</code></li>
+					<li><code>.withLatestFrom</code></li>
+					<li><code>.delay</code></li>
+					
+				</ul>
+			</section>
+			<section>
+				<h4>NgRx Best Practices</h4>
+				<ul>
+					<li>Logic writtent in services, accessed from effects</li>
+					<li>Feature separation</li>
+					<li>NgRx is reactive, use it</li>
+				</ul>
+			</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
