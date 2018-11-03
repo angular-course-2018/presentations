@@ -7,6 +7,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { userReducer } from './store/app-reducers';
 import { environment } from '../environments/environment';
 import { AppSelectors } from './store/app.selectors';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './store/app.effects';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { AppSelectors } from './store/app.selectors';
   ],
   imports: [
     BrowserModule,
+    EffectsModule.forRoot([AppEffects]),
     StoreModule.forRoot({ user: userReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

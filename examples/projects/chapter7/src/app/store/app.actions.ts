@@ -2,7 +2,8 @@ import { Action } from '@ngrx/store';
 
 export enum AppAction {
   SET_FIRSTNAME = '[app] set firstname',
-  SET_LASTNAME = '[app] set lastname'
+  SET_LASTNAME = '[app] set lastname',
+  VALUE_CHANGED = '[app] value changed'
 }
 
 export class SetFirstname implements Action {
@@ -17,4 +18,12 @@ export class SetLastname implements Action {
   constructor(public payload: string) { }
 }
 
-export type AppActionsUnion = SetFirstname | SetLastname;
+export class ValueChanged {
+  readonly type = AppAction.VALUE_CHANGED;
+
+  constructor(public payload: { value: string, ValueChangedAction: ActionType }) { }
+}
+
+export type AppActionsUnion = SetFirstname | SetLastname | ValueChanged;
+
+type ActionType = new (value: string) => AppActionsUnion;
