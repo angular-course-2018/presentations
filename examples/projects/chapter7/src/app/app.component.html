@@ -1,18 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to chapter 7 examples!
+    Welcome to weather example
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<div style="width:400px; margin:0 auto;">
+<div style="width:800px; margin:0 auto; border: 1px dashed blue;padding:10px;">
+  <label>City Name: </label>
+  <input type="text" (keyup)="onCityNameChange($event)" [value]="appSelectors.cityName$ | async" style="margin-right:10px;" />
+  <label>Country Code: </label>
+  <input type="text" (keyup)="onCountryCodeChange($event)" [value]="appSelectors.coutryCode$ | async" />
   <p>
-    <label>Firstname: </label>
-    <input type="text" (keyup)="onFirstnameChange($event)" [value]="appSelectors.firstname$ | async" />
+    Full Address: {{appSelectors.fullAddress$ | async}}
   </p>
-  <p>
-    <label>Lastname: </label>
-    <input type="text" (keyup)="onLastnameChange($event)" [value]="appSelectors.lastname$ | async" />
-  </p>
-  FullName: {{appSelectors.fullname$ | async}}
+</div>
+<div style="width:800px; margin:10px auto; border: 1px dashed blue;padding:10px;">
+  <h2 style="text-align: center">Result</h2>
+  <app-weather [weather]="appSelectors.weather$ | async" ></app-weather>
 </div>

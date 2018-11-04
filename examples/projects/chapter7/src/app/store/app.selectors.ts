@@ -6,15 +6,19 @@ import { AppState } from './app-state';
 export class AppSelectors {
   constructor(private store: Store<AppState>) { }
 
-  get firstname$() {
-    return this.store.select(state => state.user.firstname);
+  get cityName$() {
+    return this.store.select(state => state.weather.cityName);
   }
 
-  get lastname$() {
-    return this.store.select(state => state.user.lastname);
+  get countryCode$() {
+    return this.store.select(state => state.weather.countryCode);
   }
 
-  get fullname$() {
-    return this.store.select(state => `${state.user.firstname} ${state.user.lastname}`);
+  get fullAddress$() {
+    return this.store.select(state => `${state.weather.cityName}${state.weather.countryCode ? ',' : ''} ${state.weather.countryCode}`);
+  }
+
+  get weather$() {
+    return this.store.select(state => state.weather.weather);
   }
 }

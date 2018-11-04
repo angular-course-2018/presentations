@@ -1,0 +1,14 @@
+<div *ngIf="weather">
+  <u>General</u>
+  <ul>
+    <li>Temperature: {{weather.main.temp}}</li>
+    <li>Pressure: {{weather.main.pressure}}</li>
+    <li>Humidity: {{weather.main.humidity}}</li>
+  </ul>
+
+  <u>Coordinates</u>
+  <ul>
+    <li>Latitude: {{weather.coord.lat}}</li>
+    <li>Longtitude: {{weather.coord.lon}}</li>
+  </ul>
+</div>

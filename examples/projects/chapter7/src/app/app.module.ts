@@ -9,15 +9,19 @@ import { environment } from '../environments/environment';
 import { AppSelectors } from './store/app.selectors';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/app.effects';
+import { HttpClientModule } from '@angular/common/http';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     EffectsModule.forRoot([AppEffects]),
-    StoreModule.forRoot({ user: userReducer }),
+    StoreModule.forRoot({ weather: userReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

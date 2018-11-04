@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './store/app-state';
-import { SetFirstname, SetLastname, ValueChanged } from './store/app.actions';
+import { SetCityName, SetCountryCode, ValueChanged } from './store/app.actions';
 import { AppSelectors } from './store/app.selectors';
 
 @Component({
@@ -14,20 +14,20 @@ export class AppComponent {
 
   constructor(private store: Store<AppState>, public appSelectors: AppSelectors) { }
 
-  onFirstnameChange($event: KeyboardEvent) {
+  onCityNameChange($event: KeyboardEvent) {
     const value = ($event.target as HTMLInputElement).value;
 
     this.store.dispatch(new ValueChanged({
       value,
-      ValueChangedAction: SetFirstname,
+      ValueChangedAction: SetCityName,
     }));
   }
 
-  onLastnameChange($event: KeyboardEvent) {
+  onCountryCodeChange($event: KeyboardEvent) {
     const value = ($event.target as HTMLInputElement).value;
     this.store.dispatch(new ValueChanged({
       value,
-      ValueChangedAction: SetLastname,
+      ValueChangedAction: SetCountryCode,
     }));
   }
 }
