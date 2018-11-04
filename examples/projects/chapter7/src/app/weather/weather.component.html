@@ -1,4 +1,5 @@
 <div *ngIf="weather">
+  <img width="50" style="margin:0 auto; display:block; filter:drop-shadow(-2px  2px  0 #222)" [src]="'http://openweathermap.org/img/w/' + weather.weather[0].icon + '.png'" />
   <u>General</u>
   <ul>
     <li>Temperature: {{weather.main.temp}}</li>

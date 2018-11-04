@@ -23,7 +23,7 @@ export class SetCountryCode implements Action {
 export class SetWeather implements Action {
   readonly type = AppAction.SET_WEATHER;
 
-  constructor(public payload: WeatherResponse) { }
+  constructor(public payload?: WeatherResponse) { }
 }
 
 export class ValueChanged {
