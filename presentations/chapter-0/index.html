@@ -86,21 +86,20 @@
 				<h3><img class="reset-img" width="70" src="../../assets/rockstar.gif" style="vertical-align: middle; margin-right:30px" />Javascript Rocks</h3>
 				<p class="fragment">well...</p>
 				<p class="fragment">it does...</p>
-				<p class="fragment">until it don't!</p>
+				<p class="fragment">until it doesn't!</p>
 			</section>
 			<section>
 				<h3>A simple request JS way</h3>
 				<pre style="width:950px;">
 					<code class="language-javascript" data-trim>
 // returns response with data property and transactions array
-async function getBankAccountDataFromServer(request){
-  const response = await fetch('http://localhost/data', request);
+async function getAccountData(request){
+  const response = await fetch('http://my-bank/data', request);
   return response.json();
 }
 
 // id not _id 
-const request = { id: 12345 };
-const accountData = await getBankAccountDataFromServer({id: 12345});
+const accountData = await getAccountData({ id: 12345 });
 
 // firstTransaction of type Transaction
 const firstTransaction = accountData.data.transactions[0];
@@ -110,13 +109,13 @@ const firstTransaction = accountData.data.transactions[0];
 				<h3>Same request TS way</h3>
 				<pre style="width:1000px;">
 						<code class="language-typescript" data-trim>
-async function getBankAccountDataFromServer(request): BankAccountResponse {
-  const response = await fetch('http://localhost/data', request);
+async function getAccountData(request: AccountRequest): AccountResponse {
+  const response = await fetch('http://my-bank/data', request);
   return response.json();
 }
 
-const request: BankAccountRequest = { id: 12345 };
-const accountData = await getBankAccountDataFromServer(request);
+const request = new AccountRequest(12345);
+const accountData = await getAccountData(request);
 
 const firstTransaction = accountData.data.transactions[0];
 					</code></pre>
