@@ -23,15 +23,16 @@
 	</script>
 	<style>
 		body {
-		  background-image: url(../../assets/angular-logo.svg);
-		  background-repeat: no-repeat;
-		  background-size: 50% auto;
-		  background-position: -25% -60%;
+			background-image: url(../../assets/angular-logo.svg);
+			background-repeat: no-repeat;
+			background-size: 50% auto;
+			background-position: -25% -60%;
 		}
+
 		.reset-img {
-		  border: 0 !important;
-		  background: none !important;
-		  box-shadow: none !important;
+			border: 0 !important;
+			background: none !important;
+			box-shadow: none !important;
 		}
 	</style>
 </head>
@@ -82,6 +83,45 @@
 				</section>
 			</section>
 			<section>
+				<h3><img class="reset-img" width="70" src="../../assets/rockstar.gif" style="vertical-align: middle; margin-right:30px" />Javascript Rocks</h3>
+				<p class="fragment">well...</p>
+				<p class="fragment">it does...</p>
+				<p class="fragment">until it don't!</p>
+			</section>
+			<section>
+				<h3>A simple request JS way</h3>
+				<pre style="width:950px;">
+					<code class="language-javascript" data-trim>
+// returns response with data property and transactions array
+async function getBankAccountDataFromServer(request){
+  const response = await fetch('http://localhost/data', request);
+  return response.json();
+}
+
+// id not _id 
+const request = { id: 12345 };
+const accountData = await getBankAccountDataFromServer({id: 12345});
+
+// firstTransaction of type Transaction
+const firstTransaction = accountData.data.transactions[0];
+					</code></pre>
+			</section>
+			<section>
+				<h3>Same request TS way</h3>
+				<pre style="width:1000px;">
+						<code class="language-typescript" data-trim>
+async function getBankAccountDataFromServer(request): BankAccountResponse {
+  const response = await fetch('http://localhost/data', request);
+  return response.json();
+}
+
+const request: BankAccountRequest = { id: 12345 };
+const accountData = await getBankAccountDataFromServer(request);
+
+const firstTransaction = accountData.data.transactions[0];
+					</code></pre>
+			</section>
+			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/ts-logo.png">
 				<h3 style="display: inline-block;">Typescript</h3>
 				<div style="text-align: left; font-size: 36px; margin: auto; margin-top: 60px; width: 570px">
@@ -91,9 +131,23 @@
 				</div>
 			</section>
 			<section>
+				<h3>&lt;T> Generics</h3>
+				<pre>
+					<code class="language-typescript" data-trim>
+export class GroupOfPeople&lt;T extends Person> {
+  constructor(public group: T[]) {}
+  makeThemTalk() {
+    for (const person of this.group) {
+      person.talk();
+    }
+  }
+}
+					</code></pre>
+			</section>
+			<section>
 				<h3>@ Decorator</h3>
 				<i>A declarative way to enhance/override classes, members, methods, properties or parameters.</i>
-<pre><code class="language-typescript" data-trim>
+				<pre><code class="language-typescript" data-trim>
 @Fly()
 @Outfit({
   color: 'green'
@@ -111,7 +165,7 @@ Class Dog {
 				<img class="reset-img" width="500px" src="../../assets/es-ts.png">
 			</section>
 			<section>
-				<h3>Setting up Environment</h3>
+				<h4>So whats needed for awesomeness</h4>
 				<div style="text-align: left; width: 600px; margin: auto">
 					<div><img class="reset-img" style="margin: 0" width="30px" src="../../assets/git.png"> <a href="https://git-scm.com/">Git</a></div>
 					<div><img class="reset-img" style="margin: 0" width="30px" src="../../assets/node-logo.png"> <a href="https://nodejs.org/">Node.js</a></div>

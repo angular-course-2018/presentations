@@ -1,0 +1,28 @@
+:host {
+    padding: 30px;
+    display: block;
+    font-size: 20px;
+}
+
+form {
+    border: 2px dashed blue;
+    display: inline-block;
+    padding: 17px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    position: relative;
+    label {
+        display: block;
+    }
+    input {
+        display: block;
+        margin-bottom: 10px;
+    }
+    aside {
+        position: absolute;
+        top: 0;
+        top: -22px;
+        left: -2px;
+        color: blue;
+    }
+}

@@ -23,24 +23,274 @@
 	</script>
 	<style>
 		body {
-		  background-image: url(../../assets/angular-logo.svg);
-		  background-repeat: no-repeat;
-		  background-size: 50% auto;
-		  background-position: -25% -60%;
+			background-image: url(../../assets/angular-logo.svg);
+			background-repeat: no-repeat;
+			background-size: 50% auto;
+			background-position: -25% -60%;
 		}
+
 		.reset-img {
-		  border: 0 !important;
-		  background: none !important;
-		  box-shadow: none !important;
+			border: 0 !important;
+			background: none !important;
+			box-shadow: none !important;
 		}
-		
+
+		.red-border {
+			border: 5px solid red !important;
+			position: absolute;
+			left: 45px;
+
+		}
+
+		.red-border-template-1 {
+			width: 326px;
+			height: 106px;
+			top: 273px;
+			left: 241px;
+		}
+
+		.fail {
+			list-style: none;
+			transform: rotate3d(0, 0, -1, 45deg);
+			position: absolute;
+			left: 81px;
+			top: 282px;
+			border: 14px red double !important;
+			color: red;
+			padding: 18px !important;
+			background: white;
+		}
+
+		.emerging {
+			/* background: url(../../assets/reactive-forms-emerging.jpg); */
+			width: 600px;
+			height: 600px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			margin: 0 auto !important;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="reveal">
 		<div class="slides">
-            <section><i>intro placeholder...</i></section>
+			<section>
+				<h3>Angular Forms</h3>
+			</section>
+			<section data-background="../../assets/crossroads.jpg">
+			</section>
+			<section>
+				<h3>Reactive vs. Template</h3>
+				<table>
+					<tr>
+						<td>More explicit, created in component class</td>
+						<td>Less explicit, created by directives</td>
+					</tr>
+					<tr>
+						<td>Structured</td>
+						<td>Unstructured</td>
+					</tr>
+					<tr>
+						<td>Synchronous</td>
+						<td>Asynchronous</td>
+					</tr>
+					<tr>
+						<td>Functions</td>
+						<td>Directives</td>
+					</tr>
+					<tr>
+						<td>Immutable</td>
+						<td>Mutable</td>
+					</tr>
+				</table>
+			</section>
+			<section>
+				<h3>Template Driven Forms</h3>
+				<pre class="language-html" data-trim>
+					<code>
+&lt;form>
+  &lt;div class="form-group">
+    &lt;label for="name">Name&lt;/label>
+	&lt;input id="name" 
+               [(ngModel)]="model.name" 
+               required
+               maxlength="8"
+               type="email"	
+        >
+  &lt;/div>
+&lt;/form>
+					</code></pre>
+				<div class="fragment red-border-template-1 red-border"></div>
+				<div class="fragment">
+					<img style="vertical-align: middle" height="80" class="reset-img" src="../../assets/banana-in-a-box.png" />
+					Banana in a box
+				</div>
+				<ul class="fragment fail" style="list-style: none;">
+					<li>Validations are in template</li>
+				</ul>
+			</section>
+			<section>
+				<h3>What if there's a better way?</h3>
+			</section>
+			<section data-background="../../assets/reactive-forms-emerging.jpg">
+				<div class="emerging">
+					<h3 style="color:#222;font-weight: bold;position: relative; margin-top:350px;display: inline-block">Reactive forms</h3>
+				</div>
+			</section>
+			<section>
+				<h3 class="language-typescript">Reactive Forms 101</h3>
+				<pre><code>import { ReactiveFormsModule } from '@angular/forms';</code></pre>
+				<pre class="language-javascript">
+					<code>
+// profile-editor-component.ts
+export class ProfileEditorComponent {
+  profileForm = new FormGroup({
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+  });
+}	
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>Reactive Forms 101</h3>
+				<pre class="language-html" data-trim>
+					<code>
+&lt;!--profile-editor-component.html-->
+&lt;form [formGroup]="profileForm">
+    &lt;label>
+        First Name:
+        &lt;input type="text" formControlName="firstName>"
+    &lt;/label>
+    &lt;label>
+        Last Name:
+        &lt;input type="text" formControlName="lastName">
+    &lt;/label>
+&lt;/form>
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>FormControl</h3>
+				<ul>
+					<li></li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Nested forms</h3>
+				<pre class="language-javascript" data-trim>
+					<code>
+profileForm = new FormGroup({
+  firstName: new FormControl(''),
+  lastName: new FormControl(''),
+  address: new FormGroup({
+    street: new FormControl(''),
+    city: new FormControl(''),
+    state: new FormControl(''),
+    zip: new FormControl('')
+  })
+});
+					</code>
+				</pre>
+				<ul class="fragment fail" style="list-style: none;left: 481px;top: 242px;">
+					<li>So much code...</li>
+				</ul>
+			</section>
+			<section>
+				<h5><img class="reset-img" height="100px" src="../../assets/form-builder.png" style="vertical-align: middle" />
+					<span>Form Builder to the rescue</span></h5>
+				<pre class="language-javascript" data-trim>
+					<code style="min-height: 420px;">
+export class ProfileEditorComponent {
+  profileForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+    address: this.fb.group({
+    street: [''],
+    city: [''],
+    state: [''],
+    zip: ['']
+    }),
+  });
+  
+  constructor(private fb: FormBuilder) { }
+}
+					</code>
+				</pre>
+			</section>
+			<section style="width:1080px;">
+				<h3>Nested Array Forms</h3>
+				<pre style="vertical-align:top;display: inline-block; width:668px" class="language-typescript" data-trim><code>
+this.userForm = fb.group({
+  firstname: ['', Validators.required],
+  lastname: '',
+  username: '',
+  addresses: fb.array([this.createAddressForm()])
+});</code></pre>
+				<div style="display: inline-block; width:400px;height:500px;background:url('../../assets/forms.png') no-repeat; background-size:contain;"></div>
+				<!-- <img class="reset-img" width="400" src="../../assets/forms.png" alt=""> -->
+			</section>
+			<section>
+				<h3>Validators</h3>
+				<pre class="language-javascript" data-trim>
+					<code>
+import { Validators } from '@angular/forms';
+export class ProfileEditorComponent {
+  profileForm = this.fb.group({
+    firstName: ['', Validators.requred],
+    lastName:  ['', Validators.requred],
+    email:     ['', Validators.email, Validators.maxLength(12)]
+  })
+}
+					</code></pre>
+				<img height="230" src="../../assets/validators.png" />
+			</section>
+			<section>
+				<h3>Custom Validators</h3>
+				<pre class="language-javascript" data-trim>
+					<code style="width:970px;">
+export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} | null => {
+    const forbidden = nameRe.test(control.value);
+    return forbidden ? {'forbiddenName': {value: control.value}} : null;
+  };
+}
+					</code></pre>
+			</section>
+			<section>
+				<h3>CSS Status Classes</h3>
+				<ul style="list-style: none">
+					<li>.ng-valid</li>
+					<li>.ng-invalid</li>
+					<li>.ng-pending</li>
+					<li>.ng-priste</li>
+					<li>.ng-dirty</li>
+					<li>.ng-untouched</li>
+					<li>.ng-touched</li>
+				</ul>
+			</section>
+			<section>
+				<h4>So what is reactive about forms</h4>
+			</section>
+			<section>
+				<h3>Subscribing to changes</h3>
+				<pre class="language-typescript" data-trim><code>
+private firstnameSubscription: Subscription;
+
+this.firstnameSubscription = this.userForm.get('firstname')
+.valueChanges.subscribe(() => {
+  console.log(this.userForm.valid);
+});
+					</code></pre>
+				<pre class="language-typescript" data-trim><code>
+// Always unsubscribe from own subscriptions
+ngOnDestroy(): void {
+  this.firstnameSubscription.unsubscribe();
+}
+					</code></pre>
+			</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
