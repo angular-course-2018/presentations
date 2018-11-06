@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { stringify } from '@angular/compiler/src/util';
 import { Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 export interface User {
   username: string;
@@ -23,6 +24,8 @@ export interface Address {
 export class AppComponent implements OnDestroy {
   title = 'chapter6';
   userForm: FormGroup;
+  searchForm: FormGroup;
+
   get addresses() {
     return this.userForm.get('addresses') as FormArray;
   }
@@ -37,10 +40,22 @@ export class AppComponent implements OnDestroy {
       addresses: fb.array([this.createAddressForm()])
     });
 
+    this.searchForm = fb.group({
+      search: ''
+    });
+
     this.firstnameSubscription = this.userForm.get('firstname')
       .valueChanges.subscribe((value) => {
         console.log(this.userForm.valid);
       });
+
+    this.search = this.search.bind(this);
+    this.searchForm.get('search').valueChanges
+      .pipe(
+        debounceTime(500),
+        distinctUntilChanged()
+      )
+      .subscribe(this.search);
   }
 
   ngOnDestroy(): void {
@@ -49,6 +64,10 @@ export class AppComponent implements OnDestroy {
 
   addAddress() {
     this.addresses.push(this.createAddressForm());
+  }
+
+  search(value: string) {
+    console.log(`search string: ${value}`);
   }
 
 
