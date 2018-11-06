@@ -1,4 +1,4 @@
-//var, const, let
+// var, const, let
 
 if (true) {
     var imEverywhere = [];

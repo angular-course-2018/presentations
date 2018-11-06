@@ -1,7 +1,3 @@
-export interface Talkable {
-    talk(): void;
-}
-
 enum Gender {
     Female,
     Male
@@ -12,10 +8,15 @@ enum GenderStr {
     Male = 'Male'
 }
 
+export interface Talkable {
+  talk(): void;
+}
+
 export abstract class Person implements Talkable {
     // public by default
     firstname: string;
 
+    // public getter
     get fullname() {
         return `${this.firstname} ${this.lastname}`;
     }

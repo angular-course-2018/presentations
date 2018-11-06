@@ -1,10 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { stringify } from '@angular/compiler/src/util';
+import { Subscription } from 'rxjs';
+
+export interface User {
+  username: string;
+  firstname: string;
+  lastname: string;
+
+  address: Address;
+}
+
+export interface Address {
+  street: string;
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'chapter6';
+  userForm: FormGroup;
+  get addresses() {
+    return this.userForm.get('addresses') as FormArray;
+  }
+
+  private firstnameSubscription: Subscription;
+
+  constructor(private fb: FormBuilder) {
+    this.userForm = fb.group({
+      firstname: ['', Validators.required],
+      lastname: '',
+      username: '',
+      addresses: fb.array([this.createAddressForm()])
+    });
+
+    this.firstnameSubscription = this.userForm.get('firstname')
+      .valueChanges.subscribe((value) => {
+        console.log(this.userForm.valid);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.firstnameSubscription.unsubscribe();
+  }
+
+  addAddress() {
+    this.addresses.push(this.createAddressForm());
+  }
+
+
+  addUser() {
+
+  }
+
+  createAddressForm() {
+    return this.fb.group({
+      street: ['', Validators.required],
+      city: ''
+    });
+  }
 }
