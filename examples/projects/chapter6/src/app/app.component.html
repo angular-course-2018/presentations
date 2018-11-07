@@ -16,9 +16,9 @@
   <button type="submit" [disabled]="userForm.invalid">Add User</button>
 </form>
 
+<br/>
 
-
-<div [formGroup]="searchForm">
+<form [formGroup]="searchForm">
   <label>Search Users</label>
-  <input type="text" formControlName="searchUsers" />
-</div>
+  <input type="text" formControlName="search" />
+</form>
