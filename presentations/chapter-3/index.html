@@ -39,7 +39,7 @@
 
 <body>
 	<div class="reveal">
-		<div class="slides">
+		<ul class="slides">
 			<section data-background="../../assets/healty-food.jpg"></section>
 			<section data-background="../../assets/donut.jpg"></section>
 			<section>
@@ -130,6 +130,19 @@ export class BoardComponent {
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
+			</section>
+			<section>
+				<h6>CardComponent</h6>
+				<ul>
+					<li><b>Cleaner code:</b> switch getClasses() with [ngClass].</li>
+					<li><b>Performance:</b> modify change detection to OnPush.</li>
+				</ul>
+				<h6>BoardComponent</h6>
+				<ul>
+					<li><b>Util:</b> Use provided method generateCards() to generate cards.</li>
+					<li><b>Cleaner code:</b> Render cards dynamically using *ngFor.</li>
+					<li><b>Performance:</b> Track cards changes using card.id value.</li>
+				</ul>
 			</section>
 		</div>
 	</div>
