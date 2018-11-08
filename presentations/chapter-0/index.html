@@ -34,15 +34,83 @@
 			background: none !important;
 			box-shadow: none !important;
 		}
+
+		#chapters {
+			margin: 0;
+			list-style-type: none;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 20% 20% 20% 20% 20%;
+			grid-auto-flow: column;
+			font-size: 34px;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="reveal">
 		<div class="slides">
+			<section data-background="../../assets/angular-background.png">
+				<p style="height:450px;"></p>
+				<h3>Developing WebApps with Angular</h3>
+			</section>
 			<section>
 				<p>&lt;!-- TODO: (Nabil) Add funny fact here ---></p>
 			</section>
+			<section>
+				<img src="../../assets/kittens.webp" />
+			</section>
+			<section>
+				<div style="display: flex;justify-content: center;">
+					<div>
+						<p>Danny Vernovsky</p>
+						<img height="550" src="../../assets/danny.jpeg" />
+					</div>
+					<div>
+						<p>Danny Vernovsky</p>
+						<img height="550" src="../../assets/danny.jpeg" />
+					</div>
+				</div>
+			</section>
+			<section data-transition="slide-in none-out">
+				<h3>Couse Elements</h3>
+				<ul>
+					<li>8.5 chapters</li>
+					<li>2 chapters/day</li>
+					<li>coffee breaks</li>
+					<li>lunch</li>
+				</ul>
+			</section>
+			<section data-transition="none-in slide-out">
+				<h3>Couse Elements</h3>
+				<ul>
+					<li>lunch</li>
+					<li>8.5 chapters</li>
+					<li>2 chapters/day</li>
+					<li>coffee breaks</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Chapters</h3>
+				<ul id="chapters">
+					<li>Chapter 0: The Basics</li>
+					<li>Chapter 1: Components</li>
+					<li>Chapter 2: Directives & Pipes</li>
+					<li>Chapter 3: DI & Services</li>
+					<li>Chapter 4: RxJS & HTTP</li>
+					<li>Chapter 5: Routing</li>
+					<li>Chapter 6: Forms</li>
+					<li>Chapter 7: NgRx</li>
+					<li>Chapter 8: Summary</li>
+				</ul>
+			</section>
+			<!-- <section>
+				<h3>Ground rules</h3>
+				<ul style="list-style: none">
+					<li><img width="70" style="margin-right:10px; vertical-align:middle" class="reset-img" src="../../assets/no-copy-paste.png" />No
+						copy/paste</li>
+				</ul>
+			</section> -->
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/basics.png" />
 				<h3 style="display: inline-block;">The basics</h3>
@@ -83,7 +151,8 @@
 				</section>
 			</section>
 			<section>
-				<h3><img class="reset-img" width="70" src="../../assets/rockstar.gif" style="vertical-align: middle; margin-right:30px" />Javascript Rocks</h3>
+				<h3><img class="reset-img" width="70" src="../../assets/rockstar.gif" style="vertical-align: middle; margin-right:30px" />Javascript
+					Rocks</h3>
 				<p class="fragment">well...</p>
 				<p class="fragment">it does...</p>
 				<p class="fragment">until it doesn't!</p>
@@ -164,7 +233,7 @@ Class Dog {
 				<img class="reset-img" width="500px" src="../../assets/es-ts.png">
 			</section>
 			<section>
-				<h4>So whats needed for awesomeness</h4>
+				<h4>So what do you need?</h4>
 				<div style="text-align: left; width: 600px; margin: auto">
 					<div><img class="reset-img" style="margin: 0" width="30px" src="../../assets/git.png"> <a href="https://git-scm.com/">Git</a></div>
 					<div><img class="reset-img" style="margin: 0" width="30px" src="../../assets/node-logo.png"> <a href="https://nodejs.org/">Node.js</a></div>
@@ -176,6 +245,47 @@ Class Dog {
 							CMD</a> / <a href="https://conemu.github.io/">Other CLI</a></div>
 				</div>
 			</section>
+			<section>
+				<h2>demo</h2>
+			</section>
+			<section>
+				<h3>Tests 101</h3>
+				<img class="reset-img" height="100" src="../../assets/jest.png" />
+				<img class="reset-img" height="100" src="../../assets/chaijs.png" />
+				<img class="reset-img" height="100" src="../../assets/karma.svg" />
+				<img class="reset-img" height="100" src="../../assets/jasmine.png" />
+				<img class="reset-img" height="100" src="../../assets/mocha.svg" />
+			</section>
+			<section>
+				<h3>So why to test anyway?</h3>
+				<div style="display:flex;justify-content: center">
+					<div class="fragment" style="margin-right:20px;">
+						<div>Ariana 5</div>
+						<img class="reset-img" height="500" src="../../assets/ariane5.png" />
+					</div>
+					<div class="fragment">
+						<div>Ariana 5 T+00:39 </div>
+						<img class="reset-img" height="500" src="../../assets/ariane5-accident.jpg" />
+					</div>
+			</section>
+			<section>
+				<p>...software <b style="color:red;">exception</b> was caused during execution of a data conversion from 64-bit
+					floating point to 16-bit signed integer value...</p>
+				<p class="fragment">...function was not tested under simulated Ariane 5 flight conditions, and the design error was
+					not discovered.</p>
+				<div style="text-align: right;font-style: italic; font-size:14px">Official Inquiry Board report</div>
+			</section>
+			<section>
+				<h3><img class="reset-img" height="80" style="vertical-align: middle;" src="../../assets/jest.png" /> Jest
+					All-in-One</h3>
+				<ul style="list-style: none">
+					<li>Assertion library</li>
+					<li>Test runner</li>
+					<li>CLI tool</li>
+					<li>Coverage library</li>
+				</ul>
+			</section>
+			<section></section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />

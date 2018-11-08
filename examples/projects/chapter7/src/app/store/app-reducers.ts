@@ -4,7 +4,6 @@ import { WeatherState } from './app-state';
 const initialState: WeatherState = {
   cityName: '',
   countryCode: '',
-  fullAddress: '',
 };
 
 export function userReducer(state = initialState, action: AppActionsUnion): WeatherState {
