@@ -1,17 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-@Component({})
-export class SimpleBehaviorSubjectComponent implements OnInit {
-    initialState = {
-        cards: []
-    };
+interface Card {
+    id: number;
+}
 
-    source = new BehaviorSubject(this.initialState);
+@Component({
+    selector: 'app-simple-behavior-subject',
+    template: `
+        <div>{{source | async | json}}</div>
+        <button (click)="addCard()">ADD</button>
+    `
+})
+export class SimpleBehaviorSubjectComponent {
+    id = 0;
+    initialState: Card[] = [];
 
-    onChange() {
-        this.source.next({})
+    source = new BehaviorSubject<Card[]>(this.initialState);
+
+    addCard() {
+        const currentState = this.source.value;
+        const newState = [...currentState, {id: this.id++}];
+        this.source.next(newState);
     }
-
-
-};
+}

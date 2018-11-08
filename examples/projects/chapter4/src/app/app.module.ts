@@ -8,10 +8,12 @@ import { ThrottledScrollComponent } from './throttled-scroll/throttled-scroll.co
 import { HttpClientExampleComponent } from './http-client-example/http-client-example.component';
 import { SpinnerComponent } from './http-client-example/components/spinner.component';
 import { HttpClientExampleService } from './http-client-example/http-client-example.service';
+import { SimpleBehaviorSubjectComponent } from './simple-behavior-subject/simple-behavior-subject.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SimpleBehaviorSubjectComponent,
     FibonacciGeneratorComponent,
     ThrottledScrollComponent,
     HttpClientExampleComponent,
