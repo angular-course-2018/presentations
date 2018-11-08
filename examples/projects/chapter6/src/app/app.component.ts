@@ -44,13 +44,13 @@ export class AppComponent implements OnDestroy {
       search: ''
     });
 
-    this.firstnameSubscription = this.userForm.get('firstname')
+    this.firstnameSubscription = this.userForm.controls.firstname
       .valueChanges.subscribe((value) => {
         console.log(this.userForm.valid);
       });
 
     this.search = this.search.bind(this);
-    this.searchForm.get('search').valueChanges
+    this.searchForm.controls.search.valueChanges
       .pipe(
         debounceTime(500),
         distinctUntilChanged()

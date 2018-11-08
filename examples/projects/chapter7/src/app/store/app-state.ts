@@ -7,6 +7,7 @@ export interface AppState {
 export interface WeatherState {
   cityName: string;
   countryCode: string;
-  fullAddress: string;
   weather?: WeatherResponse;
 }
+
+
