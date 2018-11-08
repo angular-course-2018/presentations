@@ -183,6 +183,24 @@ source
 			</section>
 			<section>
 				<h3>HTTP Client</h3>
+			</section>
+			<section>
+				<h5>import HttpClientModule</h5>
+<pre><code class="language-typescript" data-trim>
+import { HttpClientModule } from '@angular/common/http';
+@NgModule({
+  declarations: [/**/],
+  imports: [
+    HttpClientModule,
+  ],
+  providers: [/**/],
+  bootstrap: [/**/]
+})
+export class AppModule { }
+</code></pre>	
+			</section>
+			<section>
+				<h3>HTTP Client methods</h3>
 <pre><code class="language-typescript" data-trim>
 class HttpClient {
   request&lt;T=any>(...): Observable&lt;T>
@@ -198,7 +216,7 @@ class HttpClient {
 </code></pre>
 			</section>
 			<section>
-			<h3>HTTP Client</h3>
+			<h5>HTTP GET example</h5>
 <pre><code class="language-typescript" data-trim>
 httpClient.get&lt;UserProfile>('/profile')
   .pipe(
