@@ -132,17 +132,13 @@ export class BoardComponent {
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
 			<section>
-				<h6>CardComponent</h6>
-				<ul>
-					<li><b>Cleaner code:</b> switch getClasses() with [ngClass].</li>
-					<li><b>Performance:</b> modify change detection to OnPush.</li>
-				</ul>
 				<h6>BoardComponent</h6>
 				<ul>
-					<li><b>Util:</b> Use provided method generateCards() to generate cards.</li>
-					<li><b>Cleaner code:</b> Render cards dynamically using *ngFor.</li>
-					<li><b>Performance:</b> Track cards changes using card.id value.</li>
+					<li><b>Refactor:</b> Create GameService & move all logic there</li>
+					<li><b>Server:</b> Get 12 cards from /api/board/12</li>
 				</ul>
+				<br><br>
+				<i>To start the server, go to <b>/server</b> dir and run: <b>`yarn start`</b>.</i>
 			</section>
 		</div>
 	</div>

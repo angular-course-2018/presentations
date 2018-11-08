@@ -267,6 +267,18 @@ const httpRes = fetch('/cats'); // this returns a promise
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
+			<section>
+				<h6>CardComponent</h6>
+				<ul>
+					<li><b>Cleaner code:</b> switch getClasses() with [ngClass].</li>
+					<li><b>Performance:</b> modify change detection to OnPush.</li>
+				</ul>
+				<h6>BoardComponent</h6>
+				<ul>
+					<li><b>Cleaner code:</b> Render cards dynamically using *ngFor.</li>
+					<li><b>Performance:</b> Track cards changes using card.id value.</li>
+				</ul>
+			</section>
 		</div>
 	</div>
 
