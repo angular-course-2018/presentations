@@ -1,3 +1,6 @@
+
+Slides: [https://angular-course-2018.github.io/presentations/](https://angular-course-2018.github.io/presentations/)
+
 # FUSE Training Syllabus
 ## Typescript
 1. Intro
