@@ -55,9 +55,6 @@
 				<h5>Get update for each tweet</h5>
 				<img class="reset-img" height="550px" src="../../assets/twitter3.png" alt="3">
 			</section>
-			<section>
-				<h3><img height="70px" style="margin: 0" src="../../assets/rxjs.png" class="reset-img"> RxJS Observable</h3>
-			</section>
 			<section data-transition="slide-in none-out">
 				<img class="reset-img" src="../../assets/observale.001.png" alt="">
 			</section>
@@ -71,6 +68,83 @@
 				<img class="reset-img" src="../../assets/observale.004.png" alt="">
 			</section>
 			<section>
+					<h3>Everything is a stream</h3>
+					<br>
+					<div style="width: 800px; display: flex; flex-direction: column; align-items: flex-start; margin: auto;">
+						<i><img class="reset-img" style="margin: 0;" height="40px" src="../../assets/user-interactions.png"> DOM events (click, resize, etc...)</i>
+						<i><img class="reset-img" style="margin: 0;" height="40px" src="../../assets/nw-calls.png"> Network calls (HTTP, Websocket, etc...)</i>
+						<i><img class="reset-img" style="margin: 0;" height="40px" src="../../assets/ngrx.png">  Application state</i>
+					</div>
+				</section>
+			<section>
+				<h3><img class="reset-img" height="60" style="margin: 0" src="../../assets/rxjs.png"> RxJs</h3>
+				<h5>Produce - Transform - Consume</h5>
+			</section>
+			<section>
+				<img class="reset-img" src="../../assets/rxjs-1.png" alt="rxjs-complete">
+<pre><code class="language-typescript" data-trim>
+source
+  .pipe(
+    operator1(),
+    operator2(),
+    operator3(),
+    ...
+    operatorN(),
+  )
+  .subscribe(/*...*/)
+</code></pre>
+			</section>
+			<section>
+				<h3>Source</h3>
+					<img class="reset-img" src="../../assets/rxjs-2.png" alt="rxjs-source">
+				</section>
+				<section>
+						<h6>Interval</h6>
+						<img class="reset-img" style="margin: 0" height="130px" src="../../assets/observable-of.png" alt="">
+						<pre><code class="language-typescript" data-trim>
+		import { interval } from 'rxjs';
+		
+		// Create an Observable
+		const source = interval(1000);
+		
+		// Subscribe
+		const subscriber = source.subscribe(n => 
+				console.log('Value: ', n));
+
+		</code>
+		<i>console output:</i><code class="language-javascript" data-trim>
+		Value: 0
+		Value: 1
+		Value: 2
+		</code></pre>
+					</section>
+<section>
+<h6>BehaviorSubject</h6>
+<pre><code class="language-typescript" data-trim>
+import { BehaviorSubject } from 'rxjs';
+
+// Create an Observable
+const source = new BehaviorSubject({ cards: [] })
+
+// Subscribe
+const subscriber = source.subscribe(state => 
+        console.log('State changed: ', state));
+
+source.next({ cards: [{id: 1} });
+source.next({ cards: [{id: 1}, {id: 2}] });
+
+</code>
+<i>console output:</i><code class="language-javascript" data-trim>
+State changed: { cards: [{id: 1}] }
+State changed: { cards: [{id: 1}, {id: 2}] }
+</code></pre>
+</section>
+<section>
+		<h3>Subscriber</h3>
+		<img class="reset-img" src="../../assets/rxjs-3.png" alt="rxjs-source">
+	</section>
+</section>
+			<section>
 				<h3>Unsubscribe 🙅‍</h3>
 <pre><code class="language-typescript" data-trim>
 const subscriber = source.subscribe( /* do something... */);
@@ -81,49 +155,28 @@ subscriber.unsubscribe();
 </code></pre>
 			</section>
 			<section>
-				<h3>Everything is a stream</h3>
-				<br>
-				<div style="width: 800px; display: flex; flex-direction: column; align-items: flex-start; margin: auto;">
-					<i><img class="reset-img" style="margin: 0;" height="40px" src="../../assets/user-interactions.png"> DOM events (click, resize, etc...)</i>
-					<i><img class="reset-img" style="margin: 0;" height="40px" src="../../assets/nw-calls.png"> Network calls (HTTP, Websocket, etc...)</i>
-					<i><img class="reset-img" style="margin: 0;" height="40px" src="../../assets/ngrx.png">  Application state</i>
-				</div>
-			</section>
+					<h3>Operators</h3>
+					<img class="reset-img" src="../../assets/rxjs-4.png" alt="rxjs-source">
+				</section>
+			
+
 			<section>
-				<i>Publish value each 1000 ms</i>
-				<img class="reset-img" style="margin: 0" height="130px" src="../../assets/observable-of.png" alt="">
-				<pre><code class="language-typescript" data-trim>
-import { interval } from 'rxjs';
-
-// Create an Observable
-const secondsCounter = interval(1000);
-
-// Subscribe
-const subscriber = secondsCounter.subscribe(n => 
-		console.log('Value: ', n));
-
-// Unsubscribe
-setTimeout(() => { subscriber.unsubscribe(); }, 3000);
-
-</code>
-<i>console output:</i><code class="language-javascript" data-trim>
-Value: 0
-Value: 1
-Value: 2
-</code></pre>
-			</section>
-			<section><h3>Operators</h3>
 			<pre><code class="language-typescript" data-trim>
+const source = interval(1000);
+
 source
   .pipe(
-    operator_1()
-    operator_2()
-    operator_3()
-	...
-    operator_n()
+    map(n => n ** 2),
+    filter(n => n % 2 !== 0),
   )
-  .subscribe(/*...*/)
-					</code></pre>
+  .subscribe(num => console.log(num));
+					</code>
+<i>console output:</i><code class="language-javascript" data-trim>
+1
+9
+25
+49
+</code></pre></pre>
 			</section>
 			<section>
 				<iframe src="http://rxmarbles.com/" width="100%" height="600px" frameborder="0"></iframe>
@@ -164,6 +217,15 @@ httpClient.get&lt;UserProfile>('/profile')
 		<section>
 			<h3>Action Time</h3>
 			<img class="reset-img" src="../../assets/bungee.png" />
+		</section>
+		<section>
+			<h6>GameService</h6>
+			<ul>
+				<li><b>Server:</b> Get 12 cards using HTTP call from <b>/api/board/12</b></li>
+				<li><b>Reactive:</b> Move game state to GameService and expose it as Observable (use BehavioralSubject to create a new Observable).</li>
+			</ul>
+			<br><br>
+			<i>To start the server, go to <b>/server</b> dir and run: <b>`yarn start`</b>.</i>
 		</section>
 		</div>
 	</div>
