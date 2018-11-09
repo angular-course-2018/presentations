@@ -1,0 +1,17 @@
+{
+  "name": "chapter0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/jest": "^23.3.9",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4"
+  },
+  "devDependencies": {
+    "typescript": "^3.1.6"
+  }
+}

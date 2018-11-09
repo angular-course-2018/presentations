@@ -251,9 +251,13 @@
   dependencies:
     "@types/jasmine" "*"
 
-"@types/jest@^23.3.1", "@types/jest@^23.3.5":
+"@types/jest@^23.3.1":
   version "23.3.5"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.5.tgz#870a1434208b60603745bfd214fc3fc675142364"
+
+"@types/jest@^23.3.9":
+  version "23.3.9"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.9.tgz#c16b55186ee73ae65e001fbee69d392c51337ad1"
 
 "@types/node@^6.0.46":
   version "6.14.0"

@@ -285,10 +285,115 @@ Class Dog {
 					<li>Coverage library</li>
 				</ul>
 			</section>
-			<section></section>
+			<section>
+				<h5>Installation</h5>
+				<pre>
+					<code  class="language-bash" data-trim>
+yarn add -D jest @types/jest ts-jest					
+					</code>
+				</pre>
+				<h5>Configuration</h5>
+				<pre class="language-javascript" data-trim><code  style="max-height:300px;">
+// jest.config.js or package.json
+module.exports = {
+  moduleFileExtensions: [
+    'js',
+    'ts',
+  ],
+  testEnvironment: 'node',
+  testMatch: [
+    '**/?(*.)+(spec|test).ts?(x)',
+  ],
+  globals: {
+    'ts-jest': {
+    tsConfig: 'tsconfig.json',
+    },
+  },
+  preset: 'ts-jest',
+}
+							  
+					</code></pre>
+			</section>
+			<section>
+				<h3>Spec file structure</h3>
+				<pre><code class="language-javascript" data-trim>
+describe('test unit', () => {
+  beforeAll(() => {
+    // once before the unit
+  });
+  beforeEach(() => {
+    // once before every test
+  });
+  afterEach(() => {
+    // once after every test
+  });
+  afterAll(() => {
+    // once after the unit
+  });
+});
+				</code></pre>
+			</section>
+			<section>
+				<h3>Given, When, Then</h3>
+				<pre><code class="language-javascript" data-trim>
+it('should calculate 115USD for 100USD money and 15% tax', () => {
+  // given
+  expect.hasAssertions();
+  const calculator = new SimpleTaxCalculator();
+
+  // when
+  const result = calculator.calc(100, 15);
+
+  // then
+  expect(result).toBe(115);
+});
+					</code></pre>
+			</section>
+			<section>
+				<h3>Before Each</h3>
+				<pre><code class="language-javascript" data-trim>
+describe('simple calculator', () => {
+  let calculator: SimpleTaxCalculator;
+  beforeEach(() => {
+    calculator = new SimpleTaxCalculator();
+  });
+  
+  it('should calculate 115USD for 100USD money and 15% tax', () => {
+    // given
+    expect.hasAssertions();
+    // when
+    const result = calculator.calc(100, 15);
+    // then
+    expect(result).toBe(115);
+  });
+});
+				</code></pre>
+			</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
+			</section>
+			<section>
+				<ul>
+					<li>Implement `SharedTipCalculator`
+					<br/>
+						<i style="font-size:18px">
+							(should receivqe in addition <b>number of people</b> and calculate tip for each equaly)
+						</i>
+						<li>
+							Implement `CalculatorManager`
+							<br/>
+							<i style="font-size:18px">
+								Should be able to receive <b>n</b> calculators and return <b>array</b> of results
+							</i>
+						</li>
+					</li>
+					<li>
+						Cover both classes with tests
+					</li>
+					<li>Be type safe!</li>
+				</ul>
+				<p style="font-size: 18px;"><i>BONUS: write tests first (TDD)</i></p>
 			</section>
 		</div>
 	</div>
