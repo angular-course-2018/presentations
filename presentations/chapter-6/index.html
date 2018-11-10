@@ -262,13 +262,13 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 			<section>
 				<h3>CSS Status Classes</h3>
 				<ul style="list-style: none">
-					<li>.ng-valid</li>
-					<li>.ng-invalid</li>
-					<li>.ng-pending</li>
-					<li>.ng-priste</li>
-					<li>.ng-dirty</li>
-					<li>.ng-untouched</li>
-					<li>.ng-touched</li>
+					<li>✅ .ng-valid</li>
+					<li>🚫 .ng-invalid</li>
+					<li>💤 .ng-pending</li>
+					<li>✨ .ng-priste</li>
+					<li>💩 .ng-dirty</li>
+					<li>💎 .ng-untouched</li>
+					<li>👇 .ng-touched</li>
 				</ul>
 			</section>
 			<section>
@@ -279,17 +279,19 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 				<pre class="language-typescript" data-trim><code>
 private firstnameSubscription: Subscription;
 
-this.firstnameSubscription = this.userForm.get('firstname')
-.valueChanges.subscribe(() => {
-  console.log(this.userForm.valid);
-});
-					</code></pre>
+private get firstname$ () { 
+  return this.userForm.controls.firstname; 
+}
+
+this.firstnameSubscription = 
+      this.firstname$.valueChanges.subscribe(() => {
+        console.log(this.userForm.valid);
+      });</code></pre>
 				<pre class="language-typescript" data-trim><code>
 // Always unsubscribe from own subscriptions
 ngOnDestroy(): void {
   this.firstnameSubscription.unsubscribe();
-}
-					</code></pre>
+}</code></pre>
 			</section>
 			<section>
 				<h3>Action Time</h3>
