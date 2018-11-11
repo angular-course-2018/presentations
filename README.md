@@ -1,5 +1,7 @@
-
+# Resources
 Slides: [https://angular-course-2018.github.io/presentations/](https://angular-course-2018.github.io/presentations/)
+
+Hands-on application: [https://github.com/angular-course-2018/angular-memorize-client](https://github.com/angular-course-2018/angular-memorize-client)
 
 # FUSE Training Syllabus
 ## Typescript
