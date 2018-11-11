@@ -67,7 +67,7 @@
 						<img height="550" src="../../assets/danny.jpeg" />
 					</div>
 					<div>
-						<p>Danny Vernovsky</p>
+						<p>Nabil Naffar</p>
 						<img height="550" src="../../assets/danny.jpeg" />
 					</div>
 				</div>
@@ -249,12 +249,7 @@ Class Dog {
 				<h2>demo</h2>
 			</section>
 			<section>
-				<h3>Tests 101</h3>
-				<img class="reset-img" height="100" src="../../assets/jest.png" />
-				<img class="reset-img" height="100" src="../../assets/chaijs.png" />
-				<img class="reset-img" height="100" src="../../assets/karma.svg" />
-				<img class="reset-img" height="100" src="../../assets/jasmine.png" />
-				<img class="reset-img" height="100" src="../../assets/mocha.svg" />
+				<h2>TESTS</h2>
 			</section>
 			<section>
 				<h3>So why to test anyway?</h3>
@@ -274,6 +269,26 @@ Class Dog {
 				<p class="fragment">...function was not tested under simulated Ariane 5 flight conditions, and the design error was
 					not discovered.</p>
 				<div style="text-align: right;font-style: italic; font-size:14px">Official Inquiry Board report</div>
+			</section>
+			<section data-transition="slide-in none-out">
+				<img class="reset-img" height="140" src="../../assets/jest.png" />
+				<div style="display: inline-block;width:4px;height:140px;margin:15px 0"></div>
+				<div style="display:inline-block;">
+					<img class="reset-img" height="140" src="../../assets/chaijs.png" />
+					<img class="reset-img" height="140" src="../../assets/karma.svg" />
+					<img class="reset-img" height="140" src="../../assets/jasmine.png" />
+					<img class="reset-img" height="140" src="../../assets/mocha.svg" />
+				</div>
+			</section>
+			<section data-transition="none-in slide-out">
+				<img class="reset-img" height="140" src="../../assets/jest.png" />
+				<div style="display: inline-block;width:4px;height:140px;background:#eee;margin:15px 0"></div>
+				<div style="display:inline-block; opacity: 0.3;">
+					<img class="reset-img" height="140" src="../../assets/chaijs.png" />
+					<img class="reset-img" height="140" src="../../assets/karma.svg" />
+					<img class="reset-img" height="140" src="../../assets/jasmine.png" />
+					<img class="reset-img" height="140" src="../../assets/mocha.svg" />
+				</div>
 			</section>
 			<section>
 				<h3><img class="reset-img" height="80" style="vertical-align: middle;" src="../../assets/jest.png" /> Jest
@@ -335,6 +350,9 @@ describe('test unit', () => {
 			</section>
 			<section>
 				<h3>Given, When, Then</h3>
+				<small>Explicit is better than implicit.</small>
+				<br>
+				<div style="text-align: right; font-size:22px;padding-right:200px"><small><i>PEP20 - Python Zen Code</i></small></div>
 				<pre><code class="language-javascript" data-trim>
 it('should calculate 115USD for 100USD money and 15% tax', () => {
   // given
@@ -376,17 +394,17 @@ describe('simple calculator', () => {
 			<section>
 				<ul>
 					<li>Implement `SharedTipCalculator`
-					<br/>
+						<br />
 						<i style="font-size:18px">
-							(should receivqe in addition <b>number of people</b> and calculate tip for each equaly)
+							(should receive in addition <b>number of people</b> parameter and calculate tip for each person)
 						</i>
-						<li>
-							Implement `CalculatorManager`
-							<br/>
-							<i style="font-size:18px">
-								Should be able to receive <b>n</b> calculators and return <b>array</b> of results
-							</i>
-						</li>
+					<li>
+						Implement `CalculatorManager`
+						<br />
+						<i style="font-size:18px">
+							Should be able to receive <b>n</b> calculators and return <b>array</b> of results
+						</i>
+					</li>
 					</li>
 					<li>
 						Cover both classes with tests
