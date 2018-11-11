@@ -67,7 +67,7 @@
 						<img height="550" src="../../assets/danny.jpeg" />
 					</div>
 					<div>
-						<p>Danny Vernovsky</p>
+						<p>Nabil Naffar</p>
 						<img height="550" src="../../assets/danny.jpeg" />
 					</div>
 				</div>
@@ -249,12 +249,7 @@ Class Dog {
 				<h2>demo</h2>
 			</section>
 			<section>
-				<h3>Tests 101</h3>
-				<img class="reset-img" height="100" src="../../assets/jest.png" />
-				<img class="reset-img" height="100" src="../../assets/chaijs.png" />
-				<img class="reset-img" height="100" src="../../assets/karma.svg" />
-				<img class="reset-img" height="100" src="../../assets/jasmine.png" />
-				<img class="reset-img" height="100" src="../../assets/mocha.svg" />
+				<h2>TESTS</h2>
 			</section>
 			<section>
 				<h3>So why to test anyway?</h3>
@@ -275,6 +270,26 @@ Class Dog {
 					not discovered.</p>
 				<div style="text-align: right;font-style: italic; font-size:14px">Official Inquiry Board report</div>
 			</section>
+			<section data-transition="slide-in none-out">
+				<img class="reset-img" height="140" src="../../assets/jest.png" />
+				<div style="display: inline-block;width:4px;height:140px;margin:15px 0"></div>
+				<div style="display:inline-block;">
+					<img class="reset-img" height="140" src="../../assets/chaijs.png" />
+					<img class="reset-img" height="140" src="../../assets/karma.svg" />
+					<img class="reset-img" height="140" src="../../assets/jasmine.png" />
+					<img class="reset-img" height="140" src="../../assets/mocha.svg" />
+				</div>
+			</section>
+			<section data-transition="none-in slide-out">
+				<img class="reset-img" height="140" src="../../assets/jest.png" />
+				<div style="display: inline-block;width:4px;height:140px;background:#eee;margin:15px 0"></div>
+				<div style="display:inline-block; opacity: 0.3;">
+					<img class="reset-img" height="140" src="../../assets/chaijs.png" />
+					<img class="reset-img" height="140" src="../../assets/karma.svg" />
+					<img class="reset-img" height="140" src="../../assets/jasmine.png" />
+					<img class="reset-img" height="140" src="../../assets/mocha.svg" />
+				</div>
+			</section>
 			<section>
 				<h3><img class="reset-img" height="80" style="vertical-align: middle;" src="../../assets/jest.png" /> Jest
 					All-in-One</h3>
@@ -285,10 +300,118 @@ Class Dog {
 					<li>Coverage library</li>
 				</ul>
 			</section>
-			<section></section>
+			<section>
+				<h5>Installation</h5>
+				<pre>
+					<code  class="language-bash" data-trim>
+yarn add -D jest @types/jest ts-jest					
+					</code>
+				</pre>
+				<h5>Configuration</h5>
+				<pre class="language-javascript" data-trim><code  style="max-height:300px;">
+// jest.config.js or package.json
+module.exports = {
+  moduleFileExtensions: [
+    'js',
+    'ts',
+  ],
+  testEnvironment: 'node',
+  testMatch: [
+    '**/?(*.)+(spec|test).ts?(x)',
+  ],
+  globals: {
+    'ts-jest': {
+    tsConfig: 'tsconfig.json',
+    },
+  },
+  preset: 'ts-jest',
+}
+							  
+					</code></pre>
+			</section>
+			<section>
+				<h3>Spec file structure</h3>
+				<pre><code class="language-javascript" data-trim>
+describe('test unit', () => {
+  beforeAll(() => {
+    // once before the unit
+  });
+  beforeEach(() => {
+    // once before every test
+  });
+  afterEach(() => {
+    // once after every test
+  });
+  afterAll(() => {
+    // once after the unit
+  });
+});
+				</code></pre>
+			</section>
+			<section>
+				<h3>Given, When, Then</h3>
+				<small>Explicit is better than implicit.</small>
+				<br>
+				<div style="text-align: right; font-size:22px;padding-right:200px"><small><i>PEP20 - Python Zen Code</i></small></div>
+				<pre><code class="language-javascript" data-trim>
+it('should calculate 115USD for 100USD money and 15% tax', () => {
+  // given
+  expect.hasAssertions();
+  const calculator = new SimpleTaxCalculator();
+
+  // when
+  const result = calculator.calc(100, 15);
+
+  // then
+  expect(result).toBe(115);
+});
+					</code></pre>
+			</section>
+			<section>
+				<h3>Before Each</h3>
+				<pre><code class="language-javascript" data-trim>
+describe('simple calculator', () => {
+  let calculator: SimpleTaxCalculator;
+  beforeEach(() => {
+    calculator = new SimpleTaxCalculator();
+  });
+  
+  it('should calculate 115USD for 100USD money and 15% tax', () => {
+    // given
+    expect.hasAssertions();
+    // when
+    const result = calculator.calc(100, 15);
+    // then
+    expect(result).toBe(115);
+  });
+});
+				</code></pre>
+			</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
+			</section>
+			<section>
+				<ul>
+					<li>Implement `SharedTipCalculator`
+						<br />
+						<i style="font-size:18px">
+							(should receive in addition <b>number of people</b> parameter and calculate tip for each person)
+						</i>
+					<li>
+						Implement `CalculatorManager`
+						<br />
+						<i style="font-size:18px">
+							Should be able to receive <b>n</b> calculators and return <b>array</b> of results
+						</i>
+					</li>
+					</li>
+					<li>
+						Cover both classes with tests
+					</li>
+					<li>Be type safe!</li>
+				</ul>
+				<p style="font-size: 18px;"><i>BONUS: write tests first (TDD)</i></p>
 			</section>
 		</div>
 	</div>
