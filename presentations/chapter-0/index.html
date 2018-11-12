@@ -104,19 +104,22 @@
 					<li>Chapter 8: Summary</li>
 				</ul>
 			</section>
-			<!-- <section>
-				<h3>Ground rules</h3>
-				<ul style="list-style: none">
-					<li><img width="70" style="margin-right:10px; vertical-align:middle" class="reset-img" src="../../assets/no-copy-paste.png" />No
-						copy/paste</li>
+			<section style="display:flex; justify-content: center">
+				<h3>Before we Begin</h3>
+				<ul style="list-style: none;">
+					<li>🗣️ speak your mind</li>
+					<li>✍️ write code</li>
+					<li>🗺️ use solutions as guideline</li>
 				</ul>
-			</section> -->
+				<ul style="list-style: none;margin-top:30px">
+					<li>Presentations repo: <a href="https://goo.gl/fN7dhK">https://goo.gl/fN7dhK</a></li>
+					<li>Exercise repo: <a href="https://goo.gl/DPibwQ">https://goo.gl/DPibwQ</a></li>
+				</ul>
+			</section>
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/basics.png" />
 				<h3 style="display: inline-block;">The basics</h3>
-			</section>
-			<section>
-				<i>"With good basics you'll have endless options"</i>
+				<p><i>"With good basics you'll have endless options"</i></p>
 			</section>
 			<section>
 				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/tc39.png">
@@ -175,6 +178,18 @@ const firstTransaction = accountData.data.transactions[0];
 					</code></pre>
 			</section>
 			<section>
+				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/ts-logo.png">
+				<h3 style="display: inline-block;">Typescript</h3>
+				<div style="display:flex;justify-content: center; text-align: left; font-size: 36px; margin: auto; margin-top: 60px;">
+					<ul style="list-style: none">
+						<li>Static Typing</li>
+						<li>Syntactical superset of JavaScript</li>
+						<li>Transpiles to JavaScript</li>
+						<li>Backward compatible to JavaScript</li>
+					</ul>
+				</div>
+			</section>
+			<section>
 				<h3>Same request TS way</h3>
 				<pre style="width:1000px;">
 						<code class="language-typescript" data-trim>
@@ -188,15 +203,6 @@ const accountData = await getAccountData(request);
 
 const firstTransaction = accountData.data.transactions[0];
 					</code></pre>
-			</section>
-			<section>
-				<img style="display: inline-block; margin: 0;" class="reset-img" width="70px" src="../../assets/ts-logo.png">
-				<h3 style="display: inline-block;">Typescript</h3>
-				<div style="text-align: left; font-size: 36px; margin: auto; margin-top: 60px; width: 570px">
-					<div>Static Typing</div>
-					<div>Syntactical superset of JavaScript</div>
-					<div>Transpiles to JavaScript</div>
-				</div>
 			</section>
 			<section>
 				<h3>&lt;T> Generics</h3>
@@ -302,6 +308,7 @@ Class Dog {
 					<li>Test runner</li>
 					<li>CLI tool</li>
 					<li>Coverage library</li>
+					<li>Blazing fast</li>
 				</ul>
 			</section>
 			<section>
@@ -358,10 +365,10 @@ describe('test unit', () => {
 				<br>
 				<div style="text-align: right; font-size:22px;padding-right:200px"><small><i>PEP20 - Python Zen Code</i></small></div>
 				<pre><code class="language-javascript" data-trim>
-it('should calculate 115USD for 100USD money and 15% tax', () => {
+it('should calculate 115USD for 100USD money and 15% tip', () => {
   // given
   expect.hasAssertions();
-  const calculator = new SimpleTaxCalculator();
+  const calculator = new SimpleTipCalculator();
 
   // when
   const result = calculator.calc(100, 15);
@@ -375,12 +382,12 @@ it('should calculate 115USD for 100USD money and 15% tax', () => {
 				<h3>Before Each</h3>
 				<pre><code class="language-javascript" data-trim>
 describe('simple calculator', () => {
-  let calculator: SimpleTaxCalculator;
+  let calculator: SimpleTipCalculator;
   beforeEach(() => {
-    calculator = new SimpleTaxCalculator();
+    calculator = new SimpleTipCalculator();
   });
   
-  it('should calculate 115USD for 100USD money and 15% tax', () => {
+  it('should calculate 115USD for 100USD money and 15% Tip', () => {
     // given
     expect.hasAssertions();
     // when
@@ -390,6 +397,9 @@ describe('simple calculator', () => {
   });
 });
 				</code></pre>
+			</section>
+			<section>
+				<h5>demo</h5>
 			</section>
 			<section>
 				<h3>Action Time</h3>
