@@ -265,7 +265,11 @@ httpClient.get&lt;UserProfile>('/profile')
 <i style="font-size: 30px">Note: httpClient stream ends itself when request received so .unsubscribe() is not needed here.</i>
 		</section>
 		<section>
-			<h5>HTTP interceptors</h5>
+			<h3>HTTP interceptors</h3>
+			<i>Common usages</i>
+		</section>
+		<section>
+			<h5>Authentication header</h5>
 			<pre><code class="language-typescript" data-trim>
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -284,8 +288,9 @@ export class AuthInterceptor implements HttpInterceptor {
 }	
 			</code></pre>
 		</section>
+
 		<section>
-			<h5>HTTP interceptors</h5>
+			<h5>Catch authentication errors</h5>
 			<pre><code class="language-typescript" data-trim>
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
