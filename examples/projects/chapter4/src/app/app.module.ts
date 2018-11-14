@@ -9,6 +9,7 @@ import { HttpClientExampleComponent } from './http-client-example/http-client-ex
 import { SpinnerComponent } from './http-client-example/components/spinner.component';
 import { HttpClientExampleService } from './http-client-example/http-client-example.service';
 import { SimpleBehaviorSubjectComponent } from './simple-behavior-subject/simple-behavior-subject.component';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SimpleBehaviorSubjectComponent } from './simple-behavior-subject/simple
     ThrottledScrollComponent,
     HttpClientExampleComponent,
     SpinnerComponent,
+    TimerComponent,
   ],
   imports: [
     BrowserModule,
