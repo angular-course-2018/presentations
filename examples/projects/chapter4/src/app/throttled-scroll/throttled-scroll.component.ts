@@ -20,10 +20,10 @@ export class ThrottledScrollComponent {
         }
 
         this.scrollSubscription = fromEvent(this.scrollWrapper.nativeElement, 'scroll')
-        .pipe(
-            throttleTime(this.rate),
-            scan((a) => a + 1, 0),
-        ).subscribe(count => this.eventsCount = count);
+            .pipe(
+                throttleTime(this.rate),
+                scan((a) => a + 1, 0),
+            ).subscribe(count => this.eventsCount = count);
     }
 
     stop() {

@@ -76,6 +76,9 @@
 						<i><img class="reset-img" style="margin: 0;" height="40px" src="../../assets/ngrx.png">  Application state</i>
 					</div>
 				</section>
+				<section style="height: 100%">
+						<iframe style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/GOMIBdM6N7Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</section>
 			<section>
 				<h3><img class="reset-img" height="60" style="margin: 0" src="../../assets/rxjs.png"> RxJS</h3>
 				<h5>Produce - Transform - Consume</h5>
@@ -83,7 +86,7 @@
 			<section>
 				<img class="reset-img" src="../../assets/rxjs-1.png" alt="rxjs-complete">
 <pre><code class="language-typescript" data-trim>
-source
+source$
   .pipe(
     operator1(),
     operator2(),
@@ -95,7 +98,7 @@ source
 </code></pre>
 			</section>
 			<section>
-				<h3>Source</h3>
+				<h3>🗣️ Source</h3>
 					<img class="reset-img" src="../../assets/rxjs-2.png" alt="rxjs-source">
 				</section>
 				<section>
@@ -105,10 +108,10 @@ source
 		import { interval } from 'rxjs';
 		
 		// Create an Observable
-		const source = interval(1000);
+		const source$ = interval(1000);
 		
 		// Subscribe
-		const subscriber = source.subscribe(n => 
+		const subscriber = source$.subscribe(n => 
 				console.log('Value: ', n));
 
 		</code>
@@ -118,20 +121,23 @@ source
 		Value: 2
 		</code></pre>
 					</section>
+					<section>
+						<h5>demo</h5>
+					</section>
 <section>
 <h6>BehaviorSubject</h6>
 <pre><code class="language-typescript" data-trim>
 import { BehaviorSubject } from 'rxjs';
 
 // Create an Observable
-const source = new BehaviorSubject({ cards: [] })
+const source$ = new BehaviorSubject({ cards: [] })
 
 // Subscribe
-const subscriber = source.subscribe(state => 
+const subscriber = source$.subscribe(state => 
         console.log('State changed: ', state));
 
-source.next({ cards: [{id: 1} });
-source.next({ cards: [{id: 1}, {id: 2}] });
+source$.next({ cards: [{id: 1} });
+source$.next({ cards: [{id: 1}, {id: 2}] });
 
 </code>
 <i>console output:</i><code class="language-javascript" data-trim>
@@ -140,14 +146,35 @@ State changed: { cards: [{id: 1}, {id: 2}] }
 </code></pre>
 </section>
 <section>
-		<h3>Subscriber</h3>
+	<h5>demo</h5>
+</section>
+<section>
+		<h3>👂 Subscriber</h3>
 		<img class="reset-img" src="../../assets/rxjs-3.png" alt="rxjs-source">
 	</section>
+	<section>
+<pre><code class="language-typescript" data-trim>
+const source$ = interval(1000);
+
+const subscriber = source$
+  .subscribe(
+    (i) => console.log(i),       // success
+    (err) => console.error(err), // failure
+    () => console.info('done!')  // done
+  );
+</code>
+<i>console output:</i><code class="language-javascript" data-trim>
+0
+1
+...
+Infinity
+</code></pre>
+		</section>
 </section>
 			<section>
 				<h3>Unsubscribe 🙅‍</h3>
 <pre><code class="language-typescript" data-trim>
-const subscriber = source.subscribe( /* do something... */);
+const subscriber = source$.subscribe( /* do something... */);
 </code>
 <img class="reset-img" style="width: 400px; display: block; margin: auto;" src="../../assets/2000-years.jpg" alt="">
 <code class="language-typescript" data-trim>
@@ -155,19 +182,20 @@ subscriber.unsubscribe();
 </code></pre>
 			</section>
 			<section>
-					<h3>Operators</h3>
+					<h3>🤹 Operators</h3>
 					<img class="reset-img" src="../../assets/rxjs-4.png" alt="rxjs-source">
 				</section>
 			
 
 			<section>
+				<h5>map -> filter</h5>
 			<pre><code class="language-typescript" data-trim>
-const source = interval(1000);
+const source$ = interval(1000);
 
-source
+source$
   .pipe(
-    map(n => n ** 2),
-    filter(n => n % 2 !== 0),
+    map(n => n ** 2),         // Math.pow(n, 2)
+    filter(n => n % 2 !== 0), // is odd ?
   )
   .subscribe(num => console.log(num));
 					</code>
@@ -180,6 +208,9 @@ source
 			</section>
 			<section>
 				<iframe src="http://rxmarbles.com/" width="100%" height="600px" frameborder="0"></iframe>
+			</section>
+			<section>
+				<h5>getting crazy with operators</h5>
 			</section>
 			<section>
 				<h3>HTTP Client</h3>
