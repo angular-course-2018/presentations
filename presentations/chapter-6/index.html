@@ -76,6 +76,18 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
+				<h3>Trivia Time</h3>
+			</section>
+			<section>
+				<img src="../../assets/process-center.png" />
+			</section>
+			<section>
+				<img src="../../assets/tss-exception.png" />
+			</section>
+			<section>
+				<img src="../../assets/expense-report.png" />
+			</section>
+			<section>
 				<h3>Angular Forms</h3>
 			</section>
 			<section data-background="../../assets/crossroads.jpg">
@@ -138,9 +150,7 @@
 					<h3 style="color:#222;font-weight: bold;position: relative; margin-top:350px;display: inline-block">Reactive forms</h3>
 				</div>
 			</section>
-			<section>
-				<img src="../../assets/reactive forms diagram.png" alt="reactive-forms-diagram" class="reset-img" style="margin: 0">
-			</section>
+
 			<section>
 				<h3 class="language-typescript">Reactive Forms 101</h3>
 				<pre><code>import { ReactiveFormsModule } from '@angular/forms';</code></pre>
@@ -175,7 +185,21 @@ export class ProfileEditorComponent {
 				</pre>
 			</section>
 			<section>
-				<h3>FormControl</h3>
+				<h4>FormControl API</h4>
+				<pre class="language-javascript" data-trim><code>
+valid: boolean
+invalid: boolean
+pending: boolean
+disabled: boolean
+enabled: boolean
+errors: ValidationErrors | null
+pristine: boolean
+dirty: boolean
+touched: boolean
+untouched: boolean
+...
+				</code></pre>
+				<small><a href="https://angular.io/api/forms/FormControl">Full API spec</a></small>
 			</section>
 
 			<section>
@@ -248,7 +272,7 @@ export class ProfileEditorComponent {
 				<img height="230" src="../../assets/validators.png" />
 			</section>
 			<section>
-				<h3>Custom Validators</h3>
+				<h4>Writing Custom Validators</h4>
 				<pre class="language-javascript" data-trim>
 					<code style="width:970px;">
 export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
@@ -260,8 +284,8 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 					</code></pre>
 			</section>
 			<section>
-				todo:
-<pre class="language-html" data-trim><code>
+				<h4>Using Custom Valiators</h4>
+				<pre class="language-html" data-trim><code>
 &lt;div *ngIf="name.touched && name.errors?.forbiddenName">
   Name is forbidden!!!
 &lt;/div></code></pre>
@@ -277,6 +301,12 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 					<li>💎 .ng-untouched</li>
 					<li>👇 .ng-touched</li>
 				</ul>
+			</section>
+			<section>
+				<h4>So what is so reactive about forms anyway?</h4>
+			</section>
+			<section>
+				<img src="../../assets/reactive forms diagram.png" alt="reactive-forms-diagram" class="reset-img" style="margin: 0">
 			</section>
 			<section>
 				<h3>Subscribing to changes</h3>
@@ -302,7 +332,7 @@ ngOnDestroy(): void {
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
 			<section data-background="../../assets/reactive-todo.png">
-<!-- <img class="reset-img" style="margin: 0" src="../../assets/reactive-todo.png" alt="reactive-task"> -->
+				<!-- <img class="reset-img" style="margin: 0" src="../../assets/reactive-todo.png" alt="reactive-task"> -->
 			</section>
 		</div>
 	</div>
