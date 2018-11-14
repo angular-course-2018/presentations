@@ -156,7 +156,12 @@ State changed: { cards: [{id: 1}, {id: 2}] }
 <pre><code class="language-typescript" data-trim>
 const source$ = interval(1000);
 
-const subscriber = source$.subscribe((i) => console.log(i));
+const subscriber = source$
+  .subscribe(
+    (i) => console.log(i),       // success
+    (err) => console.error(err), // failure
+    () => console.info('done!')  // done
+  );
 </code>
 <i>console output:</i><code class="language-javascript" data-trim>
 0
