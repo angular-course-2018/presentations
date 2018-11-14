@@ -26,6 +26,8 @@ export class AppComponent implements OnDestroy {
   userForm: FormGroup;
   searchForm: FormGroup;
 
+  bananaType = 'round';
+
   get addresses() {
     return this.userForm.get('addresses') as FormArray;
   }
@@ -56,8 +58,8 @@ export class AppComponent implements OnDestroy {
     this.search = this.search.bind(this);
     this.searchForm.controls.search.valueChanges
       .pipe(
-        debounceTime(500),
-        distinctUntilChanged()
+        // debounceTime(500),
+        // distinctUntilChanged()
       )
       .subscribe(this.search);
   }
@@ -84,5 +86,9 @@ export class AppComponent implements OnDestroy {
       street: ['', Validators.required],
       city: ''
     });
+  }
+
+  bananaChanged($event){
+    console.log(`banana changed to ${$event}`);
   }
 }

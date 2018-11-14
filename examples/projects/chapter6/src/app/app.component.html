@@ -22,3 +22,6 @@
   <label>Search Users</label>
   <input type="text" formControlName="search" />
 </form>
+
+
+<app-banana [bananaType]="bananaType" (bananaTypeChange)="bananaChanged($event)"></app-banana>
