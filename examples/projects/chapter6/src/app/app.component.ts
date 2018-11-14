@@ -30,6 +30,10 @@ export class AppComponent implements OnDestroy {
     return this.userForm.get('addresses') as FormArray;
   }
 
+  get firstname() {
+    return this.userForm.get('firstname');
+  }
+
   private firstnameSubscription: Subscription;
 
   constructor(private fb: FormBuilder) {

@@ -76,6 +76,11 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
+				<h4>What is Bureaucracy?</h4>
+				<p class="fragment">...a system of government in which most of the important decisions are
+					made by state officials rather than by elected representatives...</p>
+			</section>
+			<section>
 				<h3>Trivia Time</h3>
 			</section>
 			<section>
@@ -86,6 +91,9 @@
 			</section>
 			<section>
 				<img src="../../assets/expense-report.png" />
+			</section>
+			<section>
+				<img src="../../assets/sdp-form.png" />
 			</section>
 			<section>
 				<h3>Angular Forms</h3>
@@ -257,6 +265,23 @@ this.userForm = fb.group({
 				<!-- <img class="reset-img" width="400" src="../../assets/forms.png" alt=""> -->
 			</section>
 			<section>
+				<h4>Testing FormControl</h4>
+				<pre class="language-typescript" data-trim style="width:1100px"><code>
+it('should set username as invalid if username is touched and and empty', () => {
+  // given
+  const component = fixture.componentInstance;
+  const username = component.loginForm.get('username');
+
+  // when
+  username.markAsTouched();
+
+  // then
+  expect(username.valid).toBeFalsy();
+});
+				</code></pre>
+
+			</section>
+			<section>
 				<h3>Validators</h3>
 				<pre class="language-javascript" data-trim>
 					<code>
@@ -284,7 +309,12 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 					</code></pre>
 			</section>
 			<section>
-				<h4>Using Custom Valiators</h4>
+				<h4>Using Valiators for Visuals</h4>
+				<pre class="language-typescript" data-trim><code>
+get name(){
+	return this.userForm.get('name');
+}
+				</code></pre>
 				<pre class="language-html" data-trim><code>
 &lt;div *ngIf="name.touched && name.errors?.forbiddenName">
   Name is forbidden!!!
