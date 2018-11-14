@@ -194,8 +194,8 @@ const source$ = interval(1000);
 
 source$
   .pipe(
-    map(n => n ** 2),
-    filter(n => n % 2 !== 0),
+    map(n => n ** 2),         // Math.pow(n, 2)
+    filter(n => n % 2 !== 0), // is odd ?
   )
   .subscribe(num => console.log(num));
 					</code>
