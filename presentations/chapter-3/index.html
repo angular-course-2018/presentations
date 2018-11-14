@@ -128,6 +128,37 @@ export class BoardComponent {
 				<h3>Testing a service</h3>
 			</section>
 			<section>
+				<h5>Creating a Mock</h5>
+				<pre><code class="language-typescript" data-trim>
+const loggerServiceMock = { log: jest.fn() };
+				</code></pre>
+				<h5>Checking a Mock</h5>
+				<pre><code class="language-typescript" data-trim>
+expect(loggerServiceMock.log)
+  .toHaveBeenCalledWith('GameService instance created');
+				</code></pre>
+			</section>
+			<section>
+				<h5><code>jest.fn()</code> API</h5>
+				<pre class="language-typescript" data-trim><code>
+// provide an implementation function					
+mockFn.mockImplementation(fn);
+
+// provide a value to return
+mockFn.mockReturnValue(value);
+
+// provide a promise to resolve
+mockFn.mockResolvedValue(value);
+
+// provide a promise and reject
+mockFn.mockRejectedValue(value);
+</code></pre>
+<i style="font-size: 22px">* all function come with `once` flavor: <code>mockFn.mockRejectedValueOnce(value);</code></i>
+			</section>
+			<section>
+				<h3>demo</h3>
+			</section>
+			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
