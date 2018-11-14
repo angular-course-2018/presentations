@@ -213,6 +213,10 @@ source$
 				<h5>getting crazy with operators</h5>
 			</section>
 			<section>
+				<h5>Memory Leaks from Subscriptions</h5>
+				<i>finite vs. infinite</i>
+			</section>
+			<section>
 				<h3>HTTP Client</h3>
 			</section>
 			<section>
@@ -259,6 +263,52 @@ httpClient.get&lt;UserProfile>('/profile')
 </code></pre>
 <br><br>
 <i style="font-size: 30px">Note: httpClient stream ends itself when request received so .unsubscribe() is not needed here.</i>
+		</section>
+		<section>
+			<h5>HTTP interceptors</h5>
+			<pre><code class="language-typescript" data-trim>
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  constructor(
+	private router: Router, 
+	private authSelectors: AuthSelectors,
+  ) { }
+
+  intercept(request: HttpRequest&lt;unknown>, next: HttpHandler): Observable&lt;HttpEvent&lt;unknown>> {
+    return next.handle(request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    }));
+  }
+}	
+			</code></pre>
+		</section>
+		<section>
+			<h5>HTTP interceptors</h5>
+			<pre><code class="language-typescript" data-trim>
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  constructor(/**/) { }
+  intercept(request: HttpRequest&lt;unknown>, next: HttpHandler): Observable&lt;HttpEvent&lt;unknown>> {
+    return next.handle(request.clone({
+      setHeaders: {
+      Authorization: `Bearer ${token}`
+      }
+    })).pipe(
+      catchError((err: HttpEvent&lt;unknown>) => {
+      if (err instanceof HttpErrorResponse) {
+        if (err.status === 401) {
+          goToLoginPage();
+          return throwError(err);
+        }
+      }
+      })
+    );
+  }
+}
+				
+			</code></pre>
 		</section>
 <section>
 	<h3>Testing observables</h3>
