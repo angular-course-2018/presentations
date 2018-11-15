@@ -5,7 +5,7 @@
 
   <label>firstname:</label>
   <input type="text" name="firstname" formControlName="firstname" />
-  <span style="color:red" *ngIf="firstname.errors?.required">firstname is required</span>
+  <span style="color:red" *ngIf="firstname.touched && firstname.errors?.required">firstname is required</span>
   <label>lastname:</label>
   <input type="text" name="lastname" formControlName="lastname" />
   <button type="button" (click)="addAddress()">+ Add Address</button>
@@ -22,6 +22,3 @@
   <label>Search Users</label>
   <input type="text" formControlName="search" />
 </form>
-
-
-<app-banana [bananaType]="bananaType" (bananaTypeChange)="bananaChanged($event)"></app-banana>

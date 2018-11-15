@@ -337,6 +337,31 @@ imports: [
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
+			<section>
+				<ul style="list-style: none; font-size: 30px">
+					<li><u>board.reducers.ts</u></li>
+					<ul style="margin-bottom:20px">
+						<li>Implement the board.reducers file (SET_CARDS, SET_IS_DISABLED actions)</li>
+					</ul>
+					<li><u>app.module.ts, board.module.ts</u></li>
+					<ul style="margin-bottom:20px">
+						<li>wire the BoardState, BoardEffects to the module and the to the app</li>
+					</ul>
+					<li><u>board.effects.ts</u></li>
+					<ul style="margin-bottom:20px">
+						<li>Implemenet startNewGame$ effect by pulling cards form server into the store</li>
+						<li>Implemenet resetCards$ effect by pulling cards form server into the store</li>
+					</ul>
+					<li><u>board.selectors.ts</u></li>
+					<ul >
+						<li>Implement cards$ and selectedCards$ selectors</li>
+					</ul>
+				</ul>
+				<ul style="font-size: 26px; list-style: none; border:3px dashed aqua; padding:10px;">
+					<li>starter branch: <b>ngrx-starter</b></li>
+					<li>solution branch: <b>ngrx-solution</b></li>
+				</ul>
+			</section>
 		</div>
 	</div>
 

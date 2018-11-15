@@ -1,6 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { stringify } from '@angular/compiler/src/util';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -21,7 +21,8 @@ export interface Address {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnChanges {
+
   title = 'chapter6';
   userForm: FormGroup;
   searchForm: FormGroup;
@@ -40,7 +41,7 @@ export class AppComponent implements OnDestroy {
 
   constructor(private fb: FormBuilder) {
     this.userForm = fb.group({
-      firstname: ['', Validators.required],
+      firstname: ['', [Validators.required, Validators.minLength(5)]],
       lastname: '',
       username: '',
       addresses: fb.array([this.createAddressForm()])
@@ -58,8 +59,8 @@ export class AppComponent implements OnDestroy {
     this.search = this.search.bind(this);
     this.searchForm.controls.search.valueChanges
       .pipe(
-        // debounceTime(500),
-        // distinctUntilChanged()
+        debounceTime(500),
+        distinctUntilChanged()
       )
       .subscribe(this.search);
   }
@@ -88,7 +89,12 @@ export class AppComponent implements OnDestroy {
     });
   }
 
-  bananaChanged($event){
+  bananaChanged($event) {
     console.log(`banana changed to ${$event}`);
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
+
 }

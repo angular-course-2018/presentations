@@ -30,4 +30,5 @@ export class AppEffects {
             catchError((error, caught) => { console.log(error); return of(new SetWeather()); }),
           )),
     );
+    
 }
