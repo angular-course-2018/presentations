@@ -9,11 +9,15 @@ export const routesWithChildren: Routes = [
     {
         path: 'first',
         component: SimpleConfigComponent,
-        children: [
-            { path: 'crisis-center', component: CrisisCenterComponent},
-            { path: 'hero/:id', component: HeroComponent},
-            { path: '', pathMatch: 'full', redirectTo: '/first/crisis-center' },
-            { path: '**', component: NotFoundComponent },
-        ],
+        // children: [
+        //     { path: 'crisis-center', component: CrisisCenterComponent},
+        //     { path: 'hero/:id', component: HeroComponent},
+        //     { path: '', pathMatch: 'full', redirectTo: '/first/crisis-center' },
+        //     { path: '**', component: NotFoundComponent },
+        // ],
     },
+    { path: 'first/crisis-center', component: CrisisCenterComponent },
+    { path: 'first/hero/:id', component: HeroComponent},
+    { path: 'first', pathMatch: 'full', redirectTo: '/first/crisis-center'},
+    { path: 'first/**', component: NotFoundComponent},
 ];

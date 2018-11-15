@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
       <a [routerLink]="['/third']" routerLinkActive="active">Unsaved changes guard</a>
     </nav>
     <hr>
+    <h3>Router content goes here: </h3>
     <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.scss']
