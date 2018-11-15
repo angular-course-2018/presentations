@@ -213,24 +213,42 @@ export const appRoutes: Routes = [
 					<img src="../../assets/modules-routes.png" class="reset-img" alt="" style="margin: 0"><br>
 					<i style="font-size: 30px">Load finance.chunk.js only when visiting https://www.bolt.att.com/finance</i>
 				</section>
-			<section><h3>Tests</h3></section>
+				<section>
+					<h5>Lazy Loading Configuration</h5>
+					<pre><code class="language-typescript" data-trim>
+const routes: Routes = [
+  {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: 'game',
+    loadChildren: './game/game.module#GameModule'
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
+];
+					</code></pre>
+				</section>
 			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
 			<section>
-					<h6>AppModule</h6>
-					<ul>
-						<li>Create a WelcomeComponent & LoginComponent</li>
-						<li>Configure the following routes: <br>
-						<b>	/</b>: WelcomeComponent <br>
-						<b>	/game</b>: BoardComponent <br>
-						<b>	/auth</b>: LoginComponent <br>
-						other paths will be redirected to /</li>
-						<li>Add `GO!` button in WelcomeComponent that navigates to /game to start a new game</li>
-					</ul>
-				
-				</section>
+				<h6>AppModule</h6>
+				<ul>
+					<li>Implement routing configuration for:<br>
+						<b> AppModule, BoardModule & AuthModule</b>
+					</li>
+					<li>Implement IsAuthenticated CanActivate gaurd to protect our game views</li>
+					<li>Fix http interceptor, navigate to /auth screen if server returns 401 response</li>
+					<li>WelcomeComponent: Navigate to /game when clicking ‘GO’! </li>
+					<li>NavBarComponent - implement all necessary navigations </li>
+				</ul>
+			</section>
 		</div>
 	</div>
 
