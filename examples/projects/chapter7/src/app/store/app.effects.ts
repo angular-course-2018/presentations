@@ -27,8 +27,8 @@ export class AppEffects {
         this.httpClient.get<WeatherResponse>(`http://api.openweathermap.org/data/2.5/weather?q=${fullAddress}&appid=f97b5a1b0e561f60a0fc3f06da7f3aef`)
           .pipe(
             map(response => new SetWeather(response)),
-            catchError((error, caught) => { console.log(error); return of(new SetWeather()); }),
+            catchError((error, caught) => { console.log(error); return [new SetWeather()]; }),
           )),
     );
-    
+
 }
