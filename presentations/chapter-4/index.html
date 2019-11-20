@@ -136,11 +136,12 @@ const source$ = new BehaviorSubject({ cards: [] })
 const subscriber = source$.subscribe(state => 
         console.log('State changed: ', state));
 
-source$.next({ cards: [{id: 1} });
+source$.next({ cards: [{id: 1}] });
 source$.next({ cards: [{id: 1}, {id: 2}] });
 
 </code>
 <i>console output:</i><code class="language-javascript" data-trim>
+State changed: { cards: [] }
 State changed: { cards: [{id: 1}] }
 State changed: { cards: [{id: 1}, {id: 2}] }
 </code></pre>
