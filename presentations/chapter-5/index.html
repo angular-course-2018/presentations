@@ -51,25 +51,6 @@
 				<h5>How Browser Navigation works</h5>
 				<img class="reset-img" src="../../assets/mpa-spa.png" />
 			</section>
-			<section>
-					<h3 style="margin: 0">HTML5 Routing</h3>
-					<i style="font-size: 20px; font-family: 'Montserrat', Impact, sans-serif;">...or how to avoid # in URLs</i>
-					<br>
-<pre><i>Step 1: Add base tag in index.html</i><code class="language-html" data-trim>
-&lt;head>
-  ...
-  &lt;base href="/">
-&lt;/head>
-</code>
-<i>Step 2: Configure server side*</i><code class="language-typescript" data-trim>
-app.all('/api', (req, res) => { /* return data...*/});
-
-// Redirect to index.html instead of 404 NOT FOUND
-app.all('/*', (req, res) => { res.sendfile('index.html'); });
-</code>
-<i>*express.js configuration example</i>
-</pre>
-				</section>
 				<section>
 						<h3>Angular Router</h3>
 				</section>
