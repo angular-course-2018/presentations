@@ -204,36 +204,6 @@ imports: [
 			</section>
 			<section><h5>demo</h5></section>
 			<section>
-				<img src="../../assets/sloth.png" alt="Flash" class="reset-img" style="margin: 0;" height="200px">
-				<h3>Lazy Loading</h3>
-			</section>
-			<section>
-					<h5>Load modules only when navigating</h5>
-					<img src="../../assets/modules-routes.png" class="reset-img" alt="" style="margin: 0"><br>
-					<i style="font-size: 30px">Load finance.chunk.js only when visiting https://www.bolt.att.com/finance</i>
-				</section>
-				<section>
-					<h5>Lazy Loading Configuration</h5>
-					<pre><code class="language-typescript" data-trim>
-const routes: Routes = [
-  {
-    path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule'
-  },
-  {
-    path: 'game',
-    loadChildren: './game/game.module#GameModule'
-  },
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
-];
-					</code></pre>
-				</section>
-				<section><h5>demo</h5></section>
-			<section>
 				<h3>Action Time</h3>
 				<img class="reset-img" src="../../assets/bungee.png" />
 			</section>
