@@ -147,6 +147,7 @@ class HeroComponent implements OnInit{
 </code>
 </pre>
 			</section>
+			<section><h5>demo</h5></section>
 			<section>
 				<img src="../../assets/family.png" alt="family" class="reset-img" style="margin: 0; margin-bottom: -40px" width="400px">
 				<h3>Route Children</h3>
@@ -170,6 +171,30 @@ export const appRoutes: Routes = [
 ];
       			</code></pre>
 			</section>
+			<section><h5>demo</h5></section>
+			<section>
+				<h3>Multiple modules</h3>
+			</section>
+			<section>
+				<h5>Each module provides its own routing config</h5>
+				<img src="../../assets/modules-routes.png" class="reset-img" alt="">
+				<br><i>https://www.bolt.att.com/finance</i>
+			</section>
+			<section>
+<pre><code class="language-typescript" data-trim>
+// AppModule
+imports: [
+  RouterModule.forRoot(appRoutes)
+]
+
+// vs
+
+// FeatureModule 
+imports: [
+  RouterModule.forChild(partialModuleRoutes)
+]</code></pre>
+			</section>
+			<section><h5>demo</h5></section>
 			<section><h3><img src="../../assets/guard.png" class="reset-img" height="90px" style="margin: 0"> Route guards</h3></section>
 			<section><h3>CanActivate</h3>
 				<i>Decide if component can be loaded or not.</i>
