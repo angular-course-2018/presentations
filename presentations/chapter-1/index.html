@@ -47,11 +47,6 @@
 			<section>
 				<h4>Where were you in Oct 20, 2010?</h4>
 			</section>
-			<section>
-				<img class="reset-img" height="400" src="../../assets/nabil-2010.jpg" alt="">
-				<img class="reset-img" height="400" src="../../assets/danny-2010.jpeg" alt="">
-				<img style="position: absolute;left: 94px;top: 16px;" class="fragment reset-img" height="150" src="../../assets/mia.png" />
-			</section>
             <section data-state="play-wiz">
                     <img id="angularjs-logo" style="margin: 0; opacity: 0;" class="reset-img" width="70px" src="../../assets/angularjs-logo.png" />
                     <h3 id="angularjs-title" style="opacity: 0;">AngularJS</h3>
@@ -103,6 +98,11 @@
 				<h5>demo</h5>
 			</section>
 			<section>
+				<h3><del>EVE</del></h3>
+				<h3>Ivy</h3>
+				<img class="reset-img" src="../../assets/eve.png"/>
+			</section>
+			<section>
 				<h3>📦 Modules</h3>
 				<i>Containers for a cohesive block of code dedicated to an application domain, a workflow, or a closely related set of capabilities.</i>
 			</section>
@@ -119,6 +119,7 @@ import { NgModule } from '@angular/core';
 	imports: [],
   	providers: [],
   	bootstrap: [AppComponent],
+	exports: []
 })
 export class AppModule { }
 
@@ -312,13 +313,13 @@ describe('FancyButtonComponent', () => {
 			<section>
 				<h5>2. Configure testing module</h5>
 				<pre><code class="language-typescript" data-trim>
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AppComponent', () => {
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
@@ -332,11 +333,11 @@ describe('AppComponent', () => {
 			<section>
 					<h5>3. Create component instance and use it</h5>
 					<pre><code class="language-typescript" data-trim>
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 	
 describe('AppComponent', () => {
-  beforeEach(async(() => { /.../ }));
+  beforeEach(waitForAsync(() => { /.../ }));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
