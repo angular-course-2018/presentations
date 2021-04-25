@@ -26,7 +26,7 @@
           <input type="radio" id="eng" name="language" value="eng" (change)="language = 'eng'" />
           <label for="eng">English</label>
       </div>
-      
+
   </fieldset>
   <div [ngSwitch]="language" class="result">
     <div *ngSwitchCase="'heb'" style="text-align: right;">.לא אפיק קוד מזיק</div>
@@ -48,8 +48,8 @@
       </li>
     </ul>
     <ul class="result">
-      <li *ngFor="let item of items; trackBy: trackByTrackId">
-        <app-item [item]="item"></app-item>
+      <li *ngFor="let item of items; trackBy: trackByTrackId; last as isLast">
+        <app-item [item]="item" [isLast]="isLast"></app-item>
       </li>
     </ul>
   </div>
