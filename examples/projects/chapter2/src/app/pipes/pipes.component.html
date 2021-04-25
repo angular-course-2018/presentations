@@ -3,24 +3,30 @@
 <hr>
 <h3>Currency</h3>
 <div class="result">
-    <div>USD: {{ '32.99' | currency:'USD'}}</div>
-    <div>ILS: {{ '32.99' | currency:'ILS'}}</div>
-    <div>CAD: {{ '32.99' | currency:'CAD'}}</div>
+  <div>USD: {{ '32.99' | currency:'USD'}}</div>
+  <div>ILS: {{ '32.99' | currency:'ILS'}}</div>
+  <div>CAD: {{ '32.99' | currency:'CAD'}}</div>
 </div>
 <hr>
 <h3>JSON</h3>
 <div class="result">
-    {{ myObj | json }}
+  {{ myObj | json }}
 </div>
 <hr>
 <h3>Async</h3>
 <div class="result">
-    {{ asyncCall | async }}
-    <span *ngIf="isLoading">Loading...</span>
+  {{ asyncCall | async }}
+  <span *ngIf="isLoading">Loading...</span>
 </div>
 <hr>
 <h3>My Timer Pipe</h3>
 <div class="result">
-    {{ {minutes: 3, seconds: 13} | timer }}
+  {{ {minutes: 3, seconds: 13} | timer }}
 </div>
 <hr>
+<h3>Impure Pipe</h3>
+<button type="button" (click)="addNumber()">Add Number</button>
+<button type="button" (click)="removeNumber()">Remove Number</button>
+<div class="result">
+  {{numbers | oddNumbers}}
+</div>
