@@ -74,6 +74,25 @@ export class AppModule { }
 </pre>
 			</section>
 			<section>
+				<h4>Providing from within a service</h4>
+				<pre><i>game.service.ts</i><code class="language-typescript" data-trim>
+					@Injectable({
+					  providedIn: AppModule
+					})
+					export class GameService {
+					  cards: Card[];
+					
+					  startGame() {...}
+					  endGame() {...}
+					  pickCard(card: Card) {...}
+					}
+					</code></pre>	
+					<ul>
+					<li><i>Better for tree shaking</i></li>
+					<li><code><i>providedIn: 'root'</code> - makes service public</i></li>
+				</ul>
+			</section>
+			<section>
 				<img src="../../assets/di-inject.png" class="reset-img">
 			</section>
 			<section>
@@ -126,6 +145,38 @@ export class BoardComponent {
 			</section>
 			<section>
 				<h3>Testing a service</h3>
+			</section>
+			<section>
+				<h3>Working with TestBed</h3>
+<pre><code class="language-typescript">beforeEach(() => {
+	TestBed.configureTestingModule({ providers: [
+		GameService,
+		{ provide: LoggerService, useValue: loggerMock }
+	] });
+});
+
+it('should call logger when calling gameService.startGame ', () => {
+	const gameService = TestBed.inject&lt;GameService>(GameService);
+	loggerMock.log.mockReset();
+
+	gameService.startGame();
+
+	expect(loggerMock.log).toHaveBeenCalledWith('startGame called. counter: 0');
+});</code></pre>
+			</section>
+			<section>
+				<h4>Alternatively - just create an instance</h4>
+<pre><code class="language-typescript">
+it('should call logger when calling gameService.startGame ', () => {
+	const loggerMock = { log: jest.fn() };
+	const gameService = new GameService(loggerMock);
+	loggerMock.log.mockReset();
+
+	gameService.startGame();
+
+	expect(loggerMock.log).toHaveBeenCalledWith('startGame called. counter: 0');
+});
+</code></pre>
 			</section>
 			<section>
 				<h5>Creating a Mock</h5>
