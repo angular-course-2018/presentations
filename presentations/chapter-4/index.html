@@ -325,11 +325,12 @@ export class AuthInterceptor implements HttpInterceptor {
 		<section>
 			<h6>GameService</h6>
 			<ul>
-				<li><b>Server:</b> Get 12 cards using HTTP call from <b>/api/game/board/12</b></li>
+				<li><b>Server:</b> Get 12 cards using HTTP call from <b>http://localhost:3000/game/board/12</b></li>
 				<li><b>Reactive:</b> Move game state to GameService and expose it as Observable (use BehaviorSubject to create a new Observable).</li>
+				<li><b>Tests: Update tests to use observable. (Don't forget to mock the httpClient!!!)</b></li>
 			</ul>
 			<br><br>
-			<i>To start the server, go to <b>/server</b> dir and run: <b>`npm start`</b>.</i>
+			<i>To start the server, go to <b>/server</b> dir, install dependencies and run: <b>`npm start`</b>.</i>
 		</section>
 		</div>
 	</div>
