@@ -315,6 +315,29 @@ export class AuthInterceptor implements HttpInterceptor {
 				
 			</code></pre>
 		</section>
+		<section>
+			<h3>Registering Intercetors</h3>
+<pre><code>
+@Injectable()
+class MyInterceptor implements HttpInterceptor{
+	intercept(req: HttpRequest&lt;any>, next: HttpHandler): Observable&lt;HttpEvent&lt;any>> {
+	throw new Error("Method not implemented.");
+	}
+
+}	
+@NgModule({
+	providers: [
+	  BoardService,
+	  {
+		provide: HTTP_INTERCEPTORS,
+		useClass: MyInterceptor,
+		multi: true
+	  },
+	],
+  })
+  export class AppModule { }
+</code></pre>
+		</section>
 <section>
 	<h3>Testing observables</h3>
 </section>
