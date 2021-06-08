@@ -235,19 +235,10 @@ imports: [
 					<h5>Lazy Loading Configuration</h5>
 					<pre><code class="language-typescript" data-trim>
 const routes: Routes = [
-  {
-    path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule'
-  },
-  {
-    path: 'game',
-    loadChildren: './game/game.module#GameModule'
-  },
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
+	{
+		path: 'items',
+		loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
+	}
 ];
 					</code></pre>
 				</section>
