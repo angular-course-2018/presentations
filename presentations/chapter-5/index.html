@@ -235,10 +235,11 @@ imports: [
 					<h5>Lazy Loading Configuration</h5>
 					<pre><code class="language-typescript" data-trim>
 const routes: Routes = [
-	{
-		path: 'items',
-		loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
-	}
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.module')
+	  .then(m => m.ItemsModule)
+  }
 ];
 					</code></pre>
 				</section>
