@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { Subscription,  Observable, fromEvent } from 'rxjs';
+import { Subscription,  Observable, fromEvent, BehaviorSubject } from 'rxjs';
 import { scan, takeWhile, throttleTime, tap } from 'rxjs/operators';
 
 @Component({
@@ -19,7 +19,7 @@ export class ThrottledScrollComponent {
             this.stop();
         }
 
-        this.scrollSubscription = fromEvent(this.scrollWrapper.nativeElement, 'scroll')
+        this.scrollSubscription = fromEvent(this.scrollWrapper.nativeElement, 'mousemove')
             .pipe(
                 throttleTime(this.rate),
                 scan((a) => a + 1, 0),

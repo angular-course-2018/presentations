@@ -3,6 +3,8 @@ import { LoggerService } from './logger.service';
 
 @Injectable()
 export class GameService {
+
+
     counter = 0;
 
     constructor(private logger: LoggerService) {

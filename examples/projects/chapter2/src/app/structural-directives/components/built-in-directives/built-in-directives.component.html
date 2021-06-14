@@ -43,7 +43,7 @@
   <button type="button" (click)="pop()">POP</button>
   <div style="display: flex;">
     <ul class="result">
-      <li *ngFor="let item of items;">
+      <li *ngFor="let item of items; index as itemIndex">
         <app-item [item]="item"></app-item>
       </li>
     </ul>

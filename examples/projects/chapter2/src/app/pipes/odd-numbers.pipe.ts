@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'oddNumbers',
-  // pure: false
+  pure: false
 })
 export class OddNumbersPipe implements PipeTransform {
 

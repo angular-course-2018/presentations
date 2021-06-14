@@ -11,7 +11,7 @@ export class BuiltInDirectivesComponent {
   push() {
     this.items = [
       ...this.items.map(item => ({...item})),
-      {name: '' + this.items.length, id: this.items.length}
+      {name: 'item: ' + this.items.length, id: this.items.length}
     ];
   }
 
@@ -19,7 +19,7 @@ export class BuiltInDirectivesComponent {
     this.items = this.items.filter((item, i) => i !== this.items.length - 1);
   }
 
-  trackByTrackId(index, item: Item) {
-    return item.id;
+  trackByTrackId(index:number, item: Item) {
+    return index;
   }
 }

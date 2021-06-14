@@ -1,5 +1,6 @@
 <h3>Date</h3>
 <div class="result">{{ now | date:'MMMM d, y h:mm:ss'}}</div>
+{{now | date:'dd\\mm\\yyyy'}}
 <hr>
 <h3>Currency</h3>
 <div class="result">
@@ -28,5 +29,8 @@
 <button type="button" (click)="addNumber()">Add Number</button>
 <button type="button" (click)="removeNumber()">Remove Number</button>
 <div class="result">
-  {{numbers | oddNumbers}}
+  {{numbers | async | oddNumbers}}
+  <hr/>
+  {{numbers}}
 </div>
+{{asyncCall | async}}

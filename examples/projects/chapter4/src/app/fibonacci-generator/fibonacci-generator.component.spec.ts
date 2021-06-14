@@ -1,7 +1,7 @@
 import { FibonacciGeneratorComponent } from './fibonacci-generator.component';
 
 describe('FibonacciGeneratorComponent', () => {
-    let component;
+    let component: FibonacciGeneratorComponent;
 
     beforeAll(() => {
         global.console = {log: jest.fn()};

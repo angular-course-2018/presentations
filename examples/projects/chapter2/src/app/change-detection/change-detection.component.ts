@@ -13,9 +13,9 @@ export class ChangeDetectionComponent {
     username: ''
   };
 
-  // onProfileChange(profile:UserProfile){
-  //   this.profile = {
-  //     ...profile
-  //   }
-  // }
+  onProfileChange(profile:UserProfile){
+    this.profile = {
+      ...profile
+    }
+  }
 }

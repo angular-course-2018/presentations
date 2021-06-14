@@ -9,8 +9,9 @@ export class HttpClientExampleService {
     }
 
     fetchWithSuccess$() {
-        return this.httpClient.get<UserProfile>('http://localhost:3000/profile/nn605g').pipe(
-            pluck<UserProfile, Pick<UserProfile, 'username'>>('username'),
+        return this.httpClient.get<UserProfile>('http://localhost:3000/profile/nn605g')
+        .pipe(
+            pluck<UserProfile, string>('username'),
         );
     }
 
@@ -20,7 +21,8 @@ export class HttpClientExampleService {
 
     fetchMaybe$() {
         return this.httpClient.get<UserProfile>('http://localhost:3000/profile/ice-cream').pipe(
-            retry(1),
+            retry(4),
+
             pluck<UserProfile, Pick<UserProfile, 'username'>>('username'),
         );
     }

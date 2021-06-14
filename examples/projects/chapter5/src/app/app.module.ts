@@ -9,10 +9,7 @@ import { RouterModule } from '@angular/router';
 
 import { appRoutes } from './app.routes';
 import { SimpleConfigModule } from './simple-config/simple-config.module';
-import { AuthzExampleModule } from './authorization/authz-example.module';
-import { UnsavedChangesModule } from './unsaved-changes/unsaved-changes.module';
 
-import { lazyRoutes } from './lazy.routes';
 
 @NgModule({
   declarations: [
@@ -23,8 +20,6 @@ import { lazyRoutes } from './lazy.routes';
     CommonModule,
 
     SimpleConfigModule, // example 1 + 2: Simple config + children
-    AuthzExampleModule, // example 3: CanActivate
-    UnsavedChangesModule, // example 4: CanDeactivate
     RouterModule.forRoot(appRoutes),
 
     // RouterModule.forRoot(lazyRoutes)

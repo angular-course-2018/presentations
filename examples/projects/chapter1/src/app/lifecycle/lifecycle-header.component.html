@@ -1,3 +1,6 @@
 <div>
+    <ng-content></ng-content>
     <h1>{{title}}</h1>
+    <input type="text" [value]="title" (keyup)="titleChange.emit($event.currentTarget.value)"/>
+    <button type="button" (click)="myButtonClicked()"> Click Me!</button>
 </div>

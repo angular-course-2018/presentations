@@ -8,7 +8,10 @@ import { LoggerService } from './logger.service';
         GameService,
         LoggerService,
     ],
+    imports: [],
     declarations: [BoardComponent],
     exports: [BoardComponent]
 })
 export class ServicesExamplesModule {}
+
+

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ServicesExamplesModule } from './services-examples/services-examples.module';
+import { GameService } from './services-examples/game.service';
+import { LoggerService } from './services-examples/logger.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,12 @@ import { ServicesExamplesModule } from './services-examples/services-examples.mo
     BrowserModule,
     ServicesExamplesModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+appmodule -> ServicesExamplesModule -> GameService, LoggerService
+|
+|
+----->AppComponent

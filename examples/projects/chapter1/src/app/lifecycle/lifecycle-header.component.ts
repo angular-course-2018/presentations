@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -7,6 +7,8 @@ import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges, Input } from '@
 })
 export class LifecycleHeaderComponent implements OnInit, OnChanges, OnDestroy {
     @Input() title: string;
+    @Output()  titleChange = new EventEmitter<string>();
+    @Output() buttonClicked = new EventEmitter<void>();
 
     ngOnInit() {
         console.log('🎉 Mazal Tov! component was born!');
@@ -15,6 +17,12 @@ export class LifecycleHeaderComponent implements OnInit, OnChanges, OnDestroy {
 
     ngOnChanges(changes: SimpleChanges) {
         console.log('♻️ one of the inputs changed: ', changes);
+    }
+
+
+    myButtonClicked(){
+      this.buttonClicked.emit();
+      console.log('clicked!');
     }
 
     ngOnDestroy() {

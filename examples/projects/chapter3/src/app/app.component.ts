@@ -8,6 +8,9 @@ import { GameService } from './services-examples/game.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private gameService: GameService){}
+
   title = 'chapter3';
   // constructor(
   //   private gameService: GameService,

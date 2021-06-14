@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Hero } from '../models/hero.mode';
 import { Location } from '@angular/common';
+import { ActivatedRouteSnapshot } from '../../../../../../node_modules_old/@angular/router';
 
 @Component({
     selector: 'app-hero',
@@ -24,11 +25,8 @@ export class HeroComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.route.paramMap.pipe(
-            switchMap((params: ParamMap) =>
-                this.heroesService.getHero$(params.get('id')))
-        ).subscribe(hero => {
-            this.hero = hero;
+        this.route.paramMap.subscribe(params => {
+           this.heroesService.getHero$(params.get('id')).subscribe(hero => this.hero = hero);
         });
     }
 

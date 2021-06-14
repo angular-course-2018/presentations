@@ -5,9 +5,13 @@ import { Component } from '@angular/core';
     templateUrl: './lifecycle.component.html'
 })
 export class LifecycleComponent {
-    title = 'Component Lifecycle';
+    title = 'Im child';
 
     update(title: string) {
         this.title = title;
+    }
+
+    clickAtParent(){
+      console.log('clicked at parent');
     }
 }
